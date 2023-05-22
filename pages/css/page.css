@@ -1,0 +1,1296 @@
+@page{
+    size: A4 portrait;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+  .invoice-container{
+    width: 100%;
+    
+  }
+  .invoice-head{
+    background-color: red;
+    border: 1px solid black;
+  }
+
+  h3{
+    color: #fff;
+  }
+
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 500px;
+    color: #fff;
+    
+  }
+
+  .modal-content{
+    width: 700px;
+    align-content: center;
+  }
+  label{
+    color: #fff;
+  }
+
+  h2{
+    font-size: 30px;
+  }
+
+  p{
+    color: black;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 60px;
+    padding-bottom: 30px;
+  }
+
+  .address{
+    padding: 30px;
+    padding-bottom: 0px;
+  }
+
+  .details-head{
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    color: #fff;
+    border: 1px solid black;
+  }
+
+  .detail-container{
+    display: flex;
+    border: 1px solid black;
+
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 130px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+
+.bill{
+    display: flex;
+   flex-direction: column;
+   font-weight: bold;
+
+}
+
+.desc-total{
+    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+    border:  1px solid black;;
+
+    
+}
+.descripton{
+    padding: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+
+
+}
+.total{
+    padding: 0px;
+    padding-top: 5px;
+}
+
+.list{
+    display: flex;
+    justify-content: space-evenly;
+    border:  1px solid black;;
+}
+.listitem1{
+    padding: 153px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.listitem2{
+    padding: 137px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+.listitem3{
+    padding: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.listitem4{
+    padding: 105px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.listitem5{
+    padding: 126px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.listitem6{
+    padding: 127.5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.listitem7{
+    padding: 134.5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+.listitem8{
+    padding: 164px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid black;
+    color: black;
+}
+
+.describe{
+    padding: 130px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   
+
+}
+.calculation{
+    display: flex;
+    justify-content: space-evenly;
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right: 1px solid black;
+}
+ .sub{
+    /* border-right: 1px solid black; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 55px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    color: black;
+
+} 
+.col{
+    border: 1px solid black;
+    border-right: none;
+    padding-left: 0px;  
+}
+.totalamt{
+    display: flex;
+    flex-direction: column;   
+}
+
+.col1{
+    border: 1px solid black;
+    padding:50px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:210px;
+    border-right:none ;
+} 
+.calculation:nth-child(2){
+  display: flex;
+  justify-content: end;
+}
+.calculation:nth-child(3){
+    display: flex;
+    justify-content: end;
+}
+.coltotal{
+    padding: 10px;
+    font-weight: bold;
+    color: rgb(68, 86, 146);
+    border: 1px solid black;
+}
+.colamt{
+    padding: 10px;
+    font-weight: bold;
+    background-color: red;
+    color: black;
+    border: 1px solid black;  
+}
+.blank-container{
+  height: 100px;
+  border: 1px solid black;  
+   
+}
+.invoice-footer{
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  color: #fff;
+  border: 1px solid black;  
+
+}
+.icn{
+  color: black;
+}
+
+
+@media screen and (max-device-width:375px){
+  .modal-content{
+    width: 100%;
+  }
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 140px;
+    color: #fff;
+    font-size: 12px;
+    
+  }
+  label{
+    font-size: 12px;
+  }
+  
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .logo-img{
+    width: 100px;
+
+  }
+  .text-uppercase{
+    font-size: 12px;
+  }
+  p{
+    font-size: 11px;
+  }
+  .address{
+    padding: 5px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 56px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .billto{
+    font-size: 11px;
+  }
+  .descripton{
+    padding: 71px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+.listitem1{
+  padding: 73px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem2{
+  padding: 58.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem3{
+  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem4{
+  padding: 28px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem5{
+  padding: 48px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem6{
+  padding: 49.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem7{
+  padding: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem8{
+  padding: 83.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+span{
+  font-size: 13px;
+}
+.describe{
+  background-color: #fff;
+  padding: 0px;
+}
+.sub{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 35px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  color: black;
+
+} 
+.col1{
+  border: 1px solid black;
+  padding:18px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width:90px;
+  border-right:none ;
+  font-size: 13px;
+}
+.invoice-footer{
+  background-color: red;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  color: #fff;
+  border: 1px solid black;  
+  font-size: 8px;
+
+}
+.icn{
+  color: black;
+} 
+.footer-text{
+  font-size: 8px;
+}
+}
+
+@media screen and (width:414px){
+  .modal-content{
+    width: 100%;
+  }
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 140px;
+    color: #fff;
+    font-size: 12px;
+    
+  }
+  label{
+    font-size: 12px;
+  }
+  
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .logo-img{
+    width: 100px;
+
+  }
+  .text-uppercase{
+    font-size: 12px;
+  }
+  p{
+    font-size: 11px;
+  }
+  .address{
+    padding: 5px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 56px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .billto{
+    font-size: 11px;
+  }
+  .descripton{
+    padding: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+.listitem1{
+  padding: 73px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem2{
+  padding: 58.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem3{
+  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem4{
+  padding: 28px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem5{
+  padding: 48px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem6{
+  padding: 49.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem7{
+  padding: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem8{
+  padding: 83.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+span{
+  font-size: 13px;
+}
+.describe{
+  background-color: azure;
+  padding: 0px;
+}
+  .sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: black;
+  
+  } 
+  .col1{
+    border: 1px solid black;
+    padding:18px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:116px;
+    border-right:none ;
+    font-size: 13px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 60px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .descripton {
+    padding: 72px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+}
+
+@media screen and (width:390px){
+  .modal-content{
+    width: 100%;
+  }
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 140px;
+    color: #fff;
+    font-size: 12px;
+    
+  }
+  label{
+    font-size: 12px;
+  }
+  
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .logo-img{
+    width: 100px;
+
+  }
+  .text-uppercase{
+    font-size: 12px;
+  }
+  p{
+    font-size: 11px;
+  }
+  .address{
+    padding: 5px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 56px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .billto{
+    font-size: 11px;
+  }
+  .descripton{
+    padding: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+.listitem1{
+  padding: 73px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem2{
+  padding: 58.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem3{
+  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem4{
+  padding: 28px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem5{
+  padding: 48px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem6{
+  padding: 49.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem7{
+  padding: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem8{
+  padding: 83.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+span{
+  font-size: 13px;
+}
+.describe{
+  background-color: azure;
+  padding: 0px;
+}
+  .sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: black;
+  
+  } 
+  .col1{
+    border: 1px solid black;
+    padding:18px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:100px;
+    border-right:none ;
+    font-size: 13px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 60px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .descripton {
+    padding: 72px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+}
+
+@media screen and (width:393px){
+  .modal-content{
+    width: 100%;
+  }
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 140px;
+    color: #fff;
+    font-size: 12px;
+    
+  }
+  label{
+    font-size: 12px;
+  }
+  
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .logo-img{
+    width: 100px;
+
+  }
+  .text-uppercase{
+    font-size: 12px;
+  }
+  p{
+    font-size: 11px;
+  }
+  .address{
+    padding: 5px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 56px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .billto{
+    font-size: 11px;
+  }
+  .descripton{
+    padding: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+.listitem1{
+  padding: 73px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem2{
+  padding: 58.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem3{
+  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem4{
+  padding: 28px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem5{
+  padding: 48px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem6{
+  padding: 49.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem7{
+  padding: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem8{
+  padding: 83.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+span{
+  font-size: 13px;
+}
+.describe{
+  background-color: azure;
+  padding: 0px;
+}
+  .sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: black;
+  
+  } 
+  .col1{
+    border: 1px solid black;
+    padding:18px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:102px;
+    border-right:none ;
+    font-size: 13px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 60px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .descripton {
+    padding: 72px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+}
+
+@media screen and (width:360px){
+  .modal-content{
+    width: 100%;
+  }
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 140px;
+    color: #fff;
+    font-size: 12px;
+    
+  }
+  label{
+    font-size: 12px;
+  }
+  
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .logo-img{
+    width: 100px;
+
+  }
+  .text-uppercase{
+    font-size: 12px;
+  }
+  p{
+    font-size: 11px;
+  }
+  .address{
+    padding: 5px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 56px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .billto{
+    font-size: 11px;
+  }
+  .descripton{
+    padding: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+.listitem1{
+  padding: 73px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem2{
+  padding: 58.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem3{
+  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem4{
+  padding: 28px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem5{
+  padding: 48px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem6{
+  padding: 49.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem7{
+  padding: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem8{
+  padding: 83.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+span{
+  font-size: 13px;
+}
+.describe{
+  background-color: azure;
+  padding: 0px;
+}
+.col{
+  font-size: 11px;
+}
+.coltotal{
+  font-size: 11px;
+}
+.colamt{
+  font-size: 11px;
+}
+  .sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: black;
+  
+  } 
+  .col1{
+    border: 1px solid black;
+    padding:18px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:81px;
+    border-right:none ;
+    font-size: 11px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 60px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .descripton {
+    padding: 72px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+}
+@media screen and (width:412px){
+  .modal-content{
+    width: 100%;
+  }
+  .invoice-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 140px;
+    color: #fff;
+    font-size: 12px;
+    
+  }
+  label{
+    font-size: 12px;
+  }
+  
+  .imag-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+  }
+  .logo{
+    border-right: 2px solid black;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  .logo-img{
+    width: 100px;
+
+  }
+  .text-uppercase{
+    font-size: 12px;
+  }
+  p{
+    font-size: 11px;
+  }
+  .address{
+    padding: 5px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 56px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .billto{
+    font-size: 11px;
+  }
+  .descripton{
+    padding: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+.listitem1{
+  padding: 73px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem2{
+  padding: 58.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem3{
+  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem4{
+  padding: 28px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem5{
+  padding: 48px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem6{
+  padding: 49.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+
+.listitem7{
+  padding: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+.listitem8{
+  padding: 83.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid black;
+  color: black;
+  font-size: 13px;
+}
+span{
+  font-size: 13px;
+}
+.describe{
+  background-color: azure;
+  padding: 0px;
+}
+.col{
+  font-size: 11px;
+}
+.coltotal{
+  font-size: 11px;
+}
+.colamt{
+  font-size: 11px;
+}
+  .sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: black;
+  
+  } 
+  .col1{
+    border: 1px solid black;
+    padding:18px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:115px;
+    border-right:none ;
+    font-size: 11px;
+  }
+  .customer-detail{
+    color: black;
+    border-right: 2px solid black;
+    padding: 60px;
+    padding-top: 10px;
+    padding-bottom:  10px;
+  }
+  .descripton {
+    padding: 72px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 2px solid black;
+    font-size: 13px;
+}
+}

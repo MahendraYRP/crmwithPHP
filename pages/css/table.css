@@ -1,0 +1,44 @@
+.btnaddemp a{
+    color: aliceblue;
+}
+
+.btnaddemp1{
+    padding-left: 50px;
+
+}
+
+.flexbtnaddemp{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+button a{
+    color: white;
+}
+button a:hover{
+    color: rgb(255, 255, 255);
+}
+footer{
+    margin-top: 220px;
+}
+.modal-header{
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.printbtn{
+    width: 100%;
+     padding: 0;
+     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media print{
+    .printbtn{
+        display: none;
+    }    
+}

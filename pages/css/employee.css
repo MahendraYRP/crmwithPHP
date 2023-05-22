@@ -1,0 +1,26 @@
+.ibox{
+    margin: 10px;
+    width: 60%;
+}
+
+select{
+    margin: 10px;
+    width: 60%;
+}
+
+label{
+    font-weight: bold;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-device-width:767px){
+    .pagination{
+        display: flex;
+        justify-content: end;
+        padding-left: 650px;
+      }
+}

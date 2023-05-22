@@ -1,0 +1,371 @@
+.invoiceheader{
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #ffffff;
+}
+body{
+width: 100%;
+}
+.addinvoice{
+  padding-left: 50px; 
+  padding-top: 30px;
+}
+.fillsbox{
+  width: 100%;
+  background-color: #ffffff;
+}
+.form-horizontal{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.form-horizontal .form-group{
+  display: flex;
+  
+}
+
+.form-group label{
+padding-right: 10px;
+width: 20%;
+}
+.textarea{
+border: 1px solid rgb(182, 182, 182);
+}
+.textarea:focus{
+  outline: none;
+}
+#address:focus{
+  outline: none;
+}
+select{
+  width: 80%;
+}
+.selectCustomer{
+ padding-left: 20px;
+ width: 70%;
+}
+input[type="date"]{
+text-align: center;
+}
+
+select{
+  border: 1px solid #aaa;
+  background-color: #fff;
+  border-radius: 1px;
+  display: inline-block;
+  color: inherit;
+  transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #495057;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 1px solid #D2D6DA;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;
+  border-radius: 0.375rem;
+  transition: 0.2s ease;
+}
+input,select{
+border: 1px solid #aaa;
+background-color: #fff;
+border-radius: 1px;
+display: inline-block;
+color: inherit;
+transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
+width: 50%;
+padding: 0.5rem 0;
+font-size: 0.875rem;
+font-weight: 400;
+line-height: 1.5rem;
+color: #495057;
+background-color: transparent;
+background-clip: padding-box;
+border: 1px solid #D2D6DA;
+-webkit-appearance: none;
+-moz-appearance: none;
+ appearance: none;
+border-radius: 0.375rem;
+transition: 0.2s ease;
+}
+input:focus{
+  outline: none;
+}
+thead tr{
+display: flex;
+justify-content: space-around;
+} 
+
+
+ thead th:nth-child(1){
+text-indent:-60%;
+}
+thead th:nth-child(2){
+  text-indent:-60%;
+  }
+thead th:nth-child(3){
+text-indent:-100%;
+}
+thead th:nth-child(4){
+text-indent:-90%;
+}
+thead th:nth-child(5){
+text-indent:-90%;
+}
+thead th:nth-child(6){
+text-indent:-90%;
+} 
+
+
+/* editorone */
+.editorone{
+  margin: 40px;
+}
+#editor{
+ height: 50vh;
+}
+.ck{
+  height: 30vh;
+} */
+
+td input{
+  width: 50%;
+}
+td{
+  width: 10%;
+}
+option{
+  text-align: center;
+}
+
+.editclose {
+color: white;
+display: flex;
+justify-content: center;
+padding-right: 8%;
+background-color: #ffffff;
+margin-left: 1%;
+margin-right: 1%;
+}
+.editclose button a{
+color: white;
+}
+.editclose{
+gap: 20px;
+}
+
+tbody{
+display: flex;
+flex-direction: column;
+width: 100%;
+border-top: none;
+}
+.tableheader{
+background-color: #3f3a3a;
+color: #ffffff;
+}
+.tableheader table{
+width: 100%;
+}
+.Quotescalculator{
+padding-top: 20px;
+padding-bottom: 20px;
+display: flex;
+justify-content: end;
+padding-right: 40px;
+}
+
+.editclose a button{
+  width: 75px;
+  height: 50px;
+}
+.Subject{
+  width: 90%;
+}
+.texthovercolor{
+  color: #495057;
+  
+}
+.texthovercolor:hover{
+  color: rgb(224, 11, 82);
+  text-decoration: none;
+}
+
+
+#myList2{
+  border-top: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-device-width:767px){
+.mediacol{
+  display: flex;
+  flex-direction: column;
+}
+.Subject{
+  width: 90%;
+  display: flex;
+  
+}
+.Subject input{
+width: 200px;
+}
+.Subject label{
+ width: 25%;
+ padding-left: 10px;
+}
+
+input{
+  width: 90%;
+}
+input[type="date"]{
+  width: 100%;
+}
+select{
+  width: 93%;
+}
+.fillsbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.form-horizontal{
+  padding: 0;
+  margin: 0;
+}
+.Table{
+  overflow: auto;
+  white-space: nowrap;
+}
+.Table table{
+display: inline-block;
+text-align: center;
+padding: 14px;
+text-decoration: none;;
+}  
+.ps__rail-y{
+  padding: 0;
+  margin: 0;
+}
+.editor1{
+  width: 100% ;
+}
+thead tr{
+  display: flex;
+  justify-content: space-around;
+} 
+
+thead th:nth-child(1){
+  text-indent:0%;
+}
+thead th:nth-child(2){
+  text-indent:30%;
+}
+thead th:nth-child(3){
+  text-indent:450%;
+}
+thead th:nth-child(4){
+  text-indent:380%;
+}
+thead th:nth-child(5){
+  text-indent:550%;
+}
+thead th:nth-child(6){
+  text-indent:520%;
+}
+.Tablebtn{
+  display: flex;
+  gap: 20px;
+}
+}
+.addemployee{
+display: flex;
+justify-content: end;
+}
+.formone{
+display: flex;
+justify-content: center;
+}
+.checkboxfill{
+display: flex;
+ padding-left: 0;
+ padding-right: 0;
+}
+.checkboxfill .checkboxfillLable{
+padding-bottom: 50px;
+margin-top: 0;
+padding-bottom: 0;
+}
+.modal-footer{
+display: flex;
+ 
+}
+.totleAmount input{
+width: 40%;
+height: 30%;
+}
+.totleAmount{
+width: 50%;
+display: flex;
+}
+.totleAmount label{
+text-align: center;
+margin: 10px;
+}
+.merge{
+display: flex;
+justify-content: center;
+}
+.QuotesCalculatorfills{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.QuotesCalculatorform label{
+width: 100px;
+}
+.QuotesCalculatorbtn{
+display: flex;
+justify-content: center;
+padding-top: 20px;
+gap: 20px;
+}
+.employee-form{
+display: flex;
+justify-content: center;
+}
+.modal-body{
+height: 600px;
+overflow-y: scroll;
+padding: 10px; 
+}
+.QuotesCalculatorform button{
+height: 30px;
+}
+#removebtn{
+display: flex;
+justify-content: end;
+}
+
+.Subject label{
+  font-weight: bold;
+}
+
+.QuotesCalculatorfills{
+  gap: 10px;
+}

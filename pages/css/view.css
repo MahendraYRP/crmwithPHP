@@ -1,0 +1,246 @@
+body{
+    margin: 20px;
+    padding: 30px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+tr,td{
+    padding-left: 70px;
+}
+th {
+    background-color: #f2f2f2;
+    
+}
+
+tr:hover{
+    background-color: #b1b1b1;
+    transition: 0.2s;
+}
+
+.printpage{
+    margin: 10px;
+    text-align: center;
+}
+.bill div{
+    display: flex;
+    justify-content: end;
+    padding-right: 10%;
+}
+.bill div p:last-child{
+    width: 20%;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.bill div p{
+    width: 10%;
+    padding: 5px;
+    border-bottom: 1px solid #b1b1b1;
+    border-top: 1px solid #b1b1b1;
+}
+
+.printbill{
+    background-color: #fcfcfc;
+    padding: 5%;
+    border: 1px solid #dddddd;
+}
+
+
+/* viewpagebutton */
+
+.viewpagebutton{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 0;
+    margin: 0;
+}
+.Quote{
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.headerbtn{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+}
+
+.billimg{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.billpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.Recipient h6{
+    color: #807c7c;
+}
+
+.bill-data{
+padding-left: 50%;
+padding-bottom: 10%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+button a{
+    color: #ffffff;
+}
+
+.url{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.url input{
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+.url input:focus{
+    outline: none;
+}
+.Quotes{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;  
+}
+.Quotes p{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-device-width:767px){
+    .billimg{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .bill-data{
+      padding: 0;
+      padding-top: 50px;
+    }
+    .billpage{
+        padding-left: 40px;
+    }
+    .printpage{
+        width: 100%;
+        overflow: auto;
+    }
+    .ps__rail-y{
+        padding: 0;
+        margin: 0;
+    }
+    .bill{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 20px;
+    }
+    .bill div {
+        display: flex;
+        justify-content: start;
+        padding-right: 20px;
+        width: 100%;
+    }
+    .bill div p {
+        width: 100%;
+        padding: 1px;
+        margin: 0;
+        border-bottom: 0.5px solid #b1b1b1;
+        border-top: 0.5px solid #b1b1b1;
+    }
+    .bill div p:last-child{
+        width: 20%;
+    }
+
+
+.viewpagebutton{
+    display: flex;
+    flex-direction: column;
+}
+
+.headerbtn {
+    padding-left: 10px;
+}
+
+body{
+    padding: 10px;
+    margin: 10px;
+}
+
+
+
+
+
+
+}

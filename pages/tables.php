@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +69,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="../pages/employees.html">
+          <a class="nav-link text-white" href="../pages/employees.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -73,7 +77,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/pages/customers.html">
+          <a class="nav-link text-white" href="/pages/customers.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -257,7 +261,7 @@
     
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid btnimp py-1 px-3 ">
-        <a class="hrefence" href="../pages/Quotescreate.html">
+        <a class="hrefence" href="../pages/Quotescreate.php">
           <button type="button" class="btn btn-info btn-w btn-add">
           <i class="fa-solid fa-plus icn" style="color: white;">
           </i> <span class="text">Add New Quote</span></button></a>
@@ -307,412 +311,246 @@
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
+                  <?php 
+
+include "connection.php";
+
+$sql = "SELECT * from `quotes`";
+
+$result =  $result = mysqli_query($con, $sql);
+
+if ($result) {
+  while($row = mysqli_fetch_assoc($result)){
+   
+    $id = $row['id'];
+   
+    $subject = $row['subject'];
+    $customer_id = $row['customer_id'];
+    $input2 = $row['input2'];
+    $stage = $row['stage'];
+    $totalamount = $row['totalamount'];
+    
+  echo '
+  <tr id="tabledelete">
+    <td>
+
+      <p class="text-center text-sm">'.$id.'</p>
+
+    </td>
+    <td>
+      <a href="./view.html">
+        <p class="text-xs font-weight-bold mb-0">'.$customer_id.'</p>
+      </a>
+
+    </td>
+    <td class="align-middle text-center text-sm">
+      <span>'.$subject.'</span>
+    </td>
+    <td class="align-middle text-center">
+      <span class="text-secondary text-xs font-weight-bold">'.$totalamount.'</span>
+    </td>
+    <td class="align-middle text-center">
+      <a href="javascript:;" class="text-secondary text-xs font-weight-bold">
+        2022-03-28
+      </a>
+    </td>
+    <td class="align-middle text-center text-sm">
+      <span class="badge badge-sm bg-gradient-success">'.$stage.' </span>
+    </td>
+    <td class=" text-center text-sm">
+
+      <a href="./edit.php?editid='.$id.'">
+      <button type="button" class="btn btn-primary btn-sm">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+    </a>
+
+      <button type="button" class="btn btn-danger btn-sm" onclick="deleteFuncation()">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      <button type="button" class="btn bg-gradient-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-eye"></i>
+      </button>
+
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <div class="modal-footer printbtn">
+                <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+                <button type="button" id="printinvoice" class="btn btn-primary"><i class="fa-solid fa-print"></i> Print</button>
+              </div>
+             
+              
+            </div>
+            <div class="modal-body" id="invoicebill">
+
+             <div>
+              <div class="invoice-head">
+                <h3>Tax Invoice</h3>
+                <div class="invoice-info">
+                 <div><label>Invoice Date:</label>  <span>May 2,2023 </span></div>
+                 <div><label>Invoice #:</label>     <span>101</span></div>
+                 <div><label>Due Date:</label>      <span>May 1,2023</span></div>
+                </div>                                
+            </div>
+            <div class="imag-content">
+              <div class="login-brand text-center logo">
+                <img class="logo-img" src="https://yrpitsolutions.com/crm2//application/storage/system/logo.png" alt="Logo">
+            </div>
+            <div class="address">
+              <h2 class="text-uppercase">Yrp it solutions</h2>
+              <p>Chikkaballapur</p>
+              <p>Karnataka, India- 562101 </p>
+              <p>GSTIN#: 29BKFPT8169K1Z6</p>
+            </div>
+            </div>
+            <div class="details">
+              <div class="details-head">
+                   <div><span>Customer details</span></div>
+                   <div><span>Project Descripton</span></div>
+              </div>
+              <div class="detail-container">
+                <div class="customer-detail">
+                  <div class="bill">
+                   <span class="billto">Bill To:</span>
+                   <span class="billto">Mr. Jhon</span>
+                   <span class="billto">10000</span>
+                  </div>
+              </div>
+              <div class="project-desc">
+
+              </div>
+              </div>
+            </div>
+            <div class="desc-total-container">
+              <div class="desc-total">
+                <div class="descripton">
+                  <span>Descripton</span>
+               </div>
+               
+               <div class="total">
+                 <span>Total</span>
+               </div>
+              </div>
+              <div class="list">
+                <div >
+                  <span class="listitem1">Web design</span>
+                </div>
+                <div >
+                  <span>₹ 10,000</span>
+                </div>
+              </div>
+              <div class="list">
+                <div >
+                  <span class="listitem2">Web develpment</span>
+                </div>
+                <div >
+                  <span>₹ 40,000</span>
+                </div>
+              </div>
+              <div class="list">
+                <div >
+                  <span class="listitem3">Security and user integration</span>
+                </div>
+                <div >
+                  <span>₹ 10,000</span>
+                </div>
+              </div>
+              <div class="list">
+                <div >
+                  <span class="listitem4">History Data Maintainance</span>
+                </div>
+                <div >
+                  <span>₹ 5,000</span>
+                </div>
+              </div>
+            </div>
+            <div class="list">
+              <div >
+                <span class="listitem5">Automating Process</span>
+              </div>
+              <div >
+                <span>₹ 10,000</span>
+              </div>
+            </div>
+            <div class="list">
+              <div >
+                <span class="listitem6">Stock Maintainance</span>
+              </div>
+              <div >
+                <span>₹ 15,000</span>
+              </div>
+            </div>
+            <div class="list">
+              <div >
+                <span class="listitem7">Tools integration</span>
+              </div>
+              <div >
+                <span>₹ 5,000</span>
+              </div>
+            </div>
+            <div class="list">
+              <div >
+                <span class="listitem8">Testing</span>
+              </div>
+              <div >
+                <span>₹ 5,000</span>
+              </div>
+            </div>
+          </div>
+          <div class="calculation">
+            <div class="describe">
+
+            </div>
+            <div class="sub">
+              <span class="col">Sub Total</span>
+              <span class="col">CGST 9%</span>
+              <span class="col">SGST 9%</span>
+              <span class="col">IGST 18%</span>
+              <span class="coltotal">Total Amount</span>
+            </div>
+            <div class="totalamt">
+              <span class="col1">₹100,000.00</span>
+              <span class="col1">NA</span>
+              <span class="col1">NA</span>
+              <span class="col1">NA</span>
+              <span class="colamt">100,000.00</span>
+            </div>
+          </div>
+          <div class="blank-container">
+              
+          </div>
+          <div class="invoice-footer">
+           <div>
+            <i class="fa-solid fa-globe icn"></i>&nbsp;&nbsp;<span class="footer-text">www.yrpitsolutions.com</span> 
+           </div>
+           <div>
+            <i class="fa-solid fa-envelope-open-text icn"></i>&nbsp;&nbsp;<span class="footer-text">projects@yrpitsolutions.com</span>
+           </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+';
+    
+  }
+}
+
+
+
+
+
+
+?>
+
                   <tbody>
 
-                    <tr id="tabledelete">
-                      <td>
-
-                        <p class="text-center text-sm">1</p>
-
-                      </td>
-                      <td>
-                        <a href="./view.html">
-                          <p class="text-xs font-weight-bold mb-0">John</p>
-                        </a>
-
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span>AT-141</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">10000</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="javascript:;" class="text-secondary text-xs font-weight-bold">
-                          2022-03-28
-                        </a>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Accepted </span>
-                      </td>
-                      <td class=" text-center text-sm">
-
-                        <a href="./edit.html">
-                        <button type="button" class="btn btn-primary btn-sm">
-                          <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-                      </a>
-
-                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteFuncation()">
-                          <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <button type="button" class="btn bg-gradient-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-
-                                <div class="modal-footer printbtn">
-                                  <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
-                                  <button type="button" id="printinvoice" class="btn btn-primary"><i class="fa-solid fa-print"></i> Print</button>
-                                </div>
-                               
-                                
-                              </div>
-                              <div class="modal-body" id="invoicebill">
-
-                               <div>
-                                <div class="invoice-head">
-                                  <h3>Tax Invoice</h3>
-                                  <div class="invoice-info">
-                                   <div><label>Invoice Date:</label>  <span>May 2,2023 </span></div>
-                                   <div><label>Invoice #:</label>     <span>101</span></div>
-                                   <div><label>Due Date:</label>      <span>May 1,2023</span></div>
-                                  </div>                                
-                              </div>
-                              <div class="imag-content">
-                                <div class="login-brand text-center logo">
-                                  <img class="logo-img" src="https://yrpitsolutions.com/crm2//application/storage/system/logo.png" alt="Logo">
-                              </div>
-                              <div class="address">
-                                <h2 class="text-uppercase">Yrp it solutions</h2>
-                                <p>Chikkaballapur</p>
-                                <p>Karnataka, India- 562101 </p>
-                                <p>GSTIN#: 29BKFPT8169K1Z6</p>
-                              </div>
-                              </div>
-                              <div class="details">
-                                <div class="details-head">
-                                     <div><span>Customer details</span></div>
-                                     <div><span>Project Descripton</span></div>
-                                </div>
-                                <div class="detail-container">
-                                  <div class="customer-detail">
-                                    <div class="bill">
-                                     <span class="billto">Bill To:</span>
-                                     <span class="billto">Mr. Jhon</span>
-                                     <span class="billto">10000</span>
-                                    </div>
-                                </div>
-                                <div class="project-desc">
-
-                                </div>
-                                </div>
-                              </div>
-                              <div class="desc-total-container">
-                                <div class="desc-total">
-                                  <div class="descripton">
-                                    <span>Descripton</span>
-                                 </div>
-                                 
-                                 <div class="total">
-                                   <span>Total</span>
-                                 </div>
-                                </div>
-                                <div class="list">
-                                  <div >
-                                    <span class="listitem1">Web design</span>
-                                  </div>
-                                  <div >
-                                    <span>₹ 10,000</span>
-                                  </div>
-                                </div>
-                                <div class="list">
-                                  <div >
-                                    <span class="listitem2">Web develpment</span>
-                                  </div>
-                                  <div >
-                                    <span>₹ 40,000</span>
-                                  </div>
-                                </div>
-                                <div class="list">
-                                  <div >
-                                    <span class="listitem3">Security and user integration</span>
-                                  </div>
-                                  <div >
-                                    <span>₹ 10,000</span>
-                                  </div>
-                                </div>
-                                <div class="list">
-                                  <div >
-                                    <span class="listitem4">History Data Maintainance</span>
-                                  </div>
-                                  <div >
-                                    <span>₹ 5,000</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div >
-                                  <span class="listitem5">Automating Process</span>
-                                </div>
-                                <div >
-                                  <span>₹ 10,000</span>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div >
-                                  <span class="listitem6">Stock Maintainance</span>
-                                </div>
-                                <div >
-                                  <span>₹ 15,000</span>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div >
-                                  <span class="listitem7">Tools integration</span>
-                                </div>
-                                <div >
-                                  <span>₹ 5,000</span>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div >
-                                  <span class="listitem8">Testing</span>
-                                </div>
-                                <div >
-                                  <span>₹ 5,000</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="calculation">
-                              <div class="describe">
-
-                              </div>
-                              <div class="sub">
-                                <span class="col">Sub Total</span>
-                                <span class="col">CGST 9%</span>
-                                <span class="col">SGST 9%</span>
-                                <span class="col">IGST 18%</span>
-                                <span class="coltotal">Total Amount</span>
-                              </div>
-                              <div class="totalamt">
-                                <span class="col1">₹100,000.00</span>
-                                <span class="col1">NA</span>
-                                <span class="col1">NA</span>
-                                <span class="col1">NA</span>
-                                <span class="colamt">100,000.00</span>
-                              </div>
-                            </div>
-                            <div class="blank-container">
-                                
-                            </div>
-                            <div class="invoice-footer">
-                             <div>
-                              <i class="fa-solid fa-globe icn"></i>&nbsp;&nbsp;<span class="footer-text">www.yrpitsolutions.com</span> 
-                             </div>
-                             <div>
-                              <i class="fa-solid fa-envelope-open-text icn"></i>&nbsp;&nbsp;<span class="footer-text">projects@yrpitsolutions.com</span>
-                             </div>
-                            </div>
-
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr id="tabledelete">
-                      <td>
-
-                        <p class="text-center text-sm">1</p>
-
-                      </td>
-                      <td>
-                        <a href="./view.html">
-                          <p class="text-xs font-weight-bold mb-0">John</p>
-                        </a>
-
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span>AT-141</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">10000</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="javascript:;" class="text-secondary text-xs font-weight-bold">
-                          2022-03-28
-                        </a>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Accepted </span>
-                      </td>
-                      <td class=" text-center text-sm">
-
-                        <a href="./edit.html"> <button type="button" class="btn btn-primary btn-sm">
-                          <i class="fa-solid fa-pen-to-square"></i>
-                        </button></a>
-
-                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteFuncation()">
-                          <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <button type="button" class="btn bg-gradient-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                               
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                               <div>
-                                <div class="invoice-head">
-                                  <h3>Tax Invoice</h3>
-                                  <div class="invoice-info">
-                                   <div><label>Invoice Date:</label>  <span>May 2,2023 </span></div>
-                                   <div><label>Invoice #:</label>     <span>101</span></div>
-                                   <div><label>Due Date:</label>      <span>May 1,2023</span></div>
-                                  </div>                                
-                              </div>
-                              <div class="imag-content">
-                                <div class="login-brand text-center logo">
-                                  <img class="logo-img" src="https://yrpitsolutions.com/crm2//application/storage/system/logo.png" alt="Logo">
-                              </div>
-                              <div class="address">
-                                <h2 class="text-uppercase">Yrp it solutions</h2>
-                                <p>Chikkaballapur</p>
-                                <p>Karnataka, India- 562101 </p>
-                                <p>GSTIN#: 29BKFPT8169K1Z6</p>
-                              </div>
-                              </div>
-                              <div class="details">
-                                <div class="details-head">
-                                     <div><span>Customer details</span></div>
-                                     <div><span>Project Descripton</span></div>
-                                </div>
-                                <div class="detail-container">
-                                  <div class="customer-detail">
-                                    <div class="bill">
-                                     <span class="billto">Bill To:</span>
-                                     <span class="billto">Mr. Jhon</span>
-                                     <span class="billto">10000</span>
-                                    </div>
-                                </div>
-                                <div class="project-desc">
-
-                                </div>
-                                </div>
-                              </div>
-                              <div class="desc-total-container">
-                                <div class="desc-total">
-                                  <div class="descripton">
-                                    <span>Descripton</span>
-                                 </div>
-                                 
-                                 <div class="total">
-                                   <span>Total</span>
-                                 </div>
-                                </div>
-                                <div class="list">
-                                  <div>
-                                    <span class="listitem1">Web design</span>
-                                  </div>
-                                  <div>
-                                    <span>₹ 10,000</span>
-                                  </div>
-                                </div>
-                                <div class="list">
-                                  <div>
-                                    <span class="listitem2">Web develpment</span>
-                                  </div>
-                                  <div>
-                                    <span>₹ 40,000</span>
-                                  </div>
-                                </div>
-                                <div class="list">
-                                  <div>
-                                    <span class="listitem3">Security and user integration</span>
-                                  </div>
-                                  <div>
-                                    <span>₹ 10,000</span>
-                                  </div>
-                                </div>
-                                <div class="list">
-                                  <div>
-                                    <span class="listitem4">History Data Maintainance</span>
-                                  </div>
-                                  <div>
-                                    <span>₹ 5,000</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div>
-                                  <span class="listitem5">Automating Process</span>
-                                </div>
-                                <div>
-                                  <span>₹ 10,000</span>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div>
-                                  <span class="listitem6">Stock Maintainance</span>
-                                </div>
-                                <div>
-                                  <span>₹ 15,000</span>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div>
-                                  <span class="listitem7">Tools integration</span>
-                                </div>
-                                <div>
-                                  <span>₹ 5,000</span>
-                                </div>
-                              </div>
-                              <div class="list">
-                                <div>
-                                  <span class="listitem8">Testing</span>
-                                </div>
-                                <div>
-                                  <span>₹ 5,000</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="calculation">
-                              <div class="describe">
-
-                              </div>
-                              <div class="sub">
-                                <span class="col">Sub Total</span>
-                                <span class="col">CGST 9%</span>
-                                <span class="col">SGST 9%</span>
-                                <span class="col">IGST 18%</span>
-                                <span class="coltotal">Total Amount</span>
-                              </div>
-                              <div class="totalamt">
-                                <span class="col1">₹100,000.00</span>
-                                <span class="col1">NA</span>
-                                <span class="col1">NA</span>
-                                <span class="col1">NA</span>
-                                <span class="colamt">100,000.00</span>
-                              </div>
-                            </div>
-                            <div class="blank-container">
-                                
-                            </div>
-                            <div class="invoice-footer">
-                             <div>
-                              <i class="fa-solid fa-globe icn"></i>&nbsp;&nbsp;<span class="footer-text">www.yrpitsolutions.com</span> 
-                             </div>
-                             <div>
-                              <i class="fa-solid fa-envelope-open-text icn"></i>&nbsp;&nbsp;<span class="footer-text">projects@yrpitsolutions.com</span>
-                             </div>
-                            </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary"><i class="fa-solid fa-print"></i> Print</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div></td>
-                    </tr>
 
                     <!-- <tr>
                       <td>

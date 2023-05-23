@@ -424,6 +424,7 @@ if (isset($_POST['save'])) {
                         $gender = $row['gender'];
                         $position = $row['position'];
                         $gross = $row['gross'];
+                        
 
                         echo '<tr class="table-hover" id="myTable">
                             <td class="align-middle text-center text-sm">

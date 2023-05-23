@@ -18,24 +18,25 @@ if (isset($_POST['submit'])) {
   $sales_tax_id = $_POST['tid'];
   $text = $_POST['editor_val1'];
 
+
   // Retrieve the form data
 $message = $_POST['message'];
 $input1 = $_POST['input1'];
 $input2 = $_POST['input2'];
 $option = $_POST['option'];
-
+$totalamount  = $_POST['totalamount '];
 
   $sql = "INSERT INTO `quotes` (subject, customer_id, address, quote_prefix, gst_number, date_created, expiry_date,
-  stage, sales_tax_id,ckeditor2,message, input1, input2, option)
+  stage, sales_tax_id,ckeditor2,message, input1, input2, option,totalamount)
  VALUES ('$subject', '$customer_id', '$address', '$quote_prefix', '$gst_number', '$date_created', '$expiry_date',
- '$stage', '$sales_tax_id','$text','$message','$input1','$input2','$option')";
+ '$stage', '$sales_tax_id','$text','$message','$input1','$input2','$option','$totalamount')";
 
 
   // Execute the SQL statement
   if (mysqli_query($con, $sql)) {
     echo "Data inserted successfully.";
    
-    // header("location:tables.html");
+    header("location:tables.php");
   } else {
     echo "Error: " . mysqli_error($conn);
   }
@@ -114,7 +115,7 @@ $option = $_POST['option'];
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../pages/tables.html">
+          <a class="nav-link text-white active bg-gradient-primary" href="../pages/tables.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -180,7 +181,7 @@ $option = $_POST['option'];
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav"
                 href="./dashboard.html">Dashboard</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="pagenav"
-                href="./tables.html">Quotes</a></li>
+                href="./tables.php">Quotes</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page">Create Quotes</li>
           </ol>
           <!-- <h6 class="font-weight-bolder mb-0">Create Quotes</h6> -->
@@ -339,17 +340,17 @@ $option = $_POST['option'];
                          
                           <div class="mb-3">
                             <label for="employee-name" class="form-label">Employee name:</label>
-                            <input type="text" class="form-control" id="employee-name" name="employee-name" required="" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <input type="text" class="form-control" id="employee-name" name="employee-name"  onfocus="focused(this)" onfocusout="defocused(this)">
                           </div>
 
                           <div class="mb-3">
                             <label for="gross-salary" class="form-label">Gross Salary:</label>
-                            <input type="number" class="form-control" id="gross-salary" name="gross-salary" required="" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <input type="number" class="form-control" id="gross-salary" name="gross-salary"  onfocus="focused(this)" onfocusout="defocused(this)">
                           </div>                      
 
                           <div class="mb-3">
                             <label for="gross-salary" class="form-label">Monthly</label>
-                            <input type="number" class="form-control" id="gross-salary" name="gross-salary" required="" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <input type="number" class="form-control Monthly" id="gross-salary" name="gross-salary"  onfocus="focused(this)" onfocusout="defocused(this)">
                           </div>
 
                           <div class="mb-3 form-check checkboxfill">
@@ -366,7 +367,7 @@ $option = $_POST['option'];
                             </div>
                           </div>
 
-                          <button type="submit" class="btn btn-primary">calculate</button>
+                          <button type="button" class="btn btn-primary" value="calculate" onclick="myCalculate()" >calculate</button>
                         </form>
 
 
@@ -380,22 +381,21 @@ $option = $_POST['option'];
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
                     </div>
 
-
                     <form class="QuotesCalculatorfills">
                       <div class="QuotesCalculatorform">
                         <label>Sub Amount</label>
-                        <input type="text">
+                        <input type="text" id="subAmount">
                       </div>
                       <div class="QuotesCalculatorform">
                         <label>percentage</label>
-                        <input type="text">
-                        <button class="btn-sm btn-danger">
+                        <input type="text" id="percentageinput">
+                        <button class="btn-sm btn-danger" id="percentage">
                           <i class="fa-solid fa-plus"></i>
                         </button>
                       </div>
                       <div class="QuotesCalculatorform">
                         <label>Total Amount</label>
-                        <input type="text">
+                        <input type="text" name="totalamount" id="totalamount">
                       </div>
         
                       <div class="QuotesCalculatorbtn">
@@ -448,12 +448,12 @@ $option = $_POST['option'];
                           <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
                             aria-hidden="true">
                             <option value="">Select Contact...</option>
-                            <option value="3">John </option>
-                            <option value="4">Conor Nolan </option>
-                            <option value="28">Adrienne Zamora </option>
-                            <option value="29" selected="selected">test12 </option>
-                          </select><span
-                            class="select2 select2-container select2-container--bootstrap select2-container--below"
+                            <option value="John">John </option>
+                            <option value="Conor Nolan">Conor Nolan </option>
+                            <option value="Adrienne Zamora ">Adrienne Zamora </option>
+                            <option value="NULL" selected="selected"> select </option>
+                          </select><span>
+                           <class="select2 select2-container select2-container--bootstrap select2-container--below"
                             dir="ltr" style="width: 313px;"><span class="selection"><span
                                 class="select2-selection select2-selection--single" role="combobox"
                                 aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"
@@ -542,8 +542,13 @@ $option = $_POST['option'];
                           <select id="tid" name="tid" class="">
                             <option value="">None</option>
                             <option value="9.00%">CGST
-                              (9.00
-                              %)
+                              (9.00%)
+                            </option>
+                            <option value="18.00%">SGST/CGST
+                              (18.00%)
+                            </option>
+                            <option value="17.00%">SGST/CGST/IGST
+                              (27.00%)
                             </option>
 
 
@@ -663,7 +668,6 @@ $option = $_POST['option'];
                       <p>TOTAL : </p>
                       <p>00</p>
                     </div>
-
                   </div>
 
                 </div>

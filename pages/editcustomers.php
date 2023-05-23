@@ -4,7 +4,7 @@ include("connection.php");
 
 
   $id = $_GET['editid'];
-  $sql= "SELECT * FROM `customer` WHERE id=$id";
+  $sql= "SELECT * FROM `customer` WHERE id = $id";
   $result = mysqli_query($con,$sql);
   $row = mysqli_fetch_assoc($result);
 

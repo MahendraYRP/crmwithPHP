@@ -141,7 +141,29 @@ td{
 option{
   text-align: center;
 }
-
+.Tablebtn{
+  margin: 20px;
+}
+.bill div{
+  display: flex;
+  justify-content: end;
+}
+.bill div p:last-child{
+  width: 10%;
+  border-bottom: 2px solid #b1b1b1;
+  justify-content: center;
+  text-align: center;
+}
+/* cke_inner */
+#cke_editor1{
+width: 100%;
+background-color: #ffffff;
+}
+.editor1{
+  padding: 40px;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+}
 .editclose {
 color: white;
 display: flex;
@@ -162,7 +184,6 @@ tbody{
 display: flex;
 flex-direction: column;
 width: 100%;
-border-top: none;
 }
 .tableheader{
 background-color: #3f3a3a;
@@ -194,21 +215,6 @@ padding-right: 40px;
   color: rgb(224, 11, 82);
   text-decoration: none;
 }
-
-
-#myList2{
-  border-top: none;
-}
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (max-device-width:767px){
 .mediacol{

@@ -7,9 +7,9 @@ $idone = $_GET['editid'];
 $sql = "SELECT * FROM `quotes` WHERE id = $idone";
 $result = mysqli_query($con, $sql);
 
-if ($result && mysqli_num_rows($result) > 0) {
+
   $row = mysqli_fetch_assoc($result);
-  
+
   $subject = $row['subject'];
   $customer_id = $row['customer_id'];
   $address = $row['address'];
@@ -26,12 +26,56 @@ if ($result && mysqli_num_rows($result) > 0) {
   $option = $row['option'];
   $totalamount = $row['totalamount'];
 
-  // Rest of your code
-} else {
-    echo "not inseted";
+
+  if(isset($_POST['submit'])){
+
+    $subject = $_POST['subject'];
+    $customer_id = $_POST['cid'];
+    $address = $_POST['address'];
+    $quote_prefix = $_POST['invoicenum'];
+    $gst_number = $_POST['cn'];
+    $date_created = $_POST['idate'];
+    $expiry_date = $_POST['edate'];
+    $stage = $_POST['stage'];
+    $sales_tax_id = $_POST['tid'];
+    $text = $_POST['editor_val1'];
+    // Retrieve the form data
+    $message = $_POST['message'];
+    $input1 = $_POST['input1'];
+    $input2 = $_POST['input2'];
+    $option = $_POST['option'];
+    $totalamount = $_POST['totalamount'];
+
+
+$sql = "UPDATE `quotes`
+ SET subject = '$subject',
+    customer_id = '$customer_id',
+    address = '$address',
+    quote_prefix = '$quote_prefix',
+    gst_number = '$gst_number',
+    date_created = '$date_created',
+    expiry_date = '$expiry_date',
+    stage = '$stage',
+    sales_tax_id = '$sales_tax_id',
+    ckeditor2 = '$text',
+    message = '$message',
+    input1 = '$input1',
+    input2 = '$input2',
+    option = '$option',
+    totalamount = '$totalamount'
+    WHERE id = $idone";
+
+
+$result = mysqli_query($con,$sql);
+
+if ($result) {
+  // echo "data not inseterd";
+  header('location:tables.php');
+}else{
+  die(mysqli_error($con));
 }
 
-
+  }
 
 
 
@@ -174,7 +218,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                 href="./dashboard.html">Dashboard</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="pagenav"
                 href="./tables.php">Quotes</a></li>
-            <li class="breadcrumb-item text-sm text-dark " aria-current="page">Create Quotes</li>
+            <li class="breadcrumb-item text-sm text-dark " aria-current="page">Edit Quotes</li>
           </ol>
           <!-- <h6 class="font-weight-bolder mb-0">Create Quotes</h6> -->
         </nav>
@@ -299,123 +343,130 @@ if ($result && mysqli_num_rows($result) > 0) {
           <div class="fillsbox">
 
             <div class="textfills p-3 ">
-            <div class="Quotescalculator">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Quotes Calculator
-            </button>
+              <div class="Quotescalculator">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Quotes Calculator
+                </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Quotes Calculator</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-
-                    <div class="addemployee">
-                      <button id="add-employee-btn" class="btn btn-primary">Add Employee</button>
-                    </div>
-
-                    <div class="formone" id="employee-forms-container">
-                      <div class="employee-form">
-
-                        <form class="p-2">
-
-                          <div id="removebtn" class="" onclick="remove(0)">
-                              <i class="fa-solid fa-xmark"></i>
-                          </div>
-                         
-                          <div class="mb-3">
-                            <label for="employee-name" class="form-label">Employee name:</label>
-                            <input type="text" class="form-control" id="employee-name" name="employee-name"  onfocus="focused(this)" onfocusout="defocused(this)">
-                          </div>
-
-                          <div class="mb-3">
-                            <label for="gross-salary" class="form-label">Gross Salary:</label>
-                            <input type="number" class="form-control" id="gross-salary" name="gross-salary"  onfocus="focused(this)" onfocusout="defocused(this)">
-                          </div>                      
-
-                          <div class="mb-3">
-                            <label for="gross-salary" class="form-label">Monthly</label>
-                            <input type="number" class="form-control Monthly" id="gross-salary" name="gross-salary"  onfocus="focused(this)" onfocusout="defocused(this)">
-                          </div>
-
-                          <div class="mb-3 form-check checkboxfill">
-                            <label class="form-check-label checkboxfillLable" for="daily-salary-checkbox">Daily
-                              salary?</label>
-                            <input type="checkbox" class="form-check-input" id="daily-salary-checkbox" name="daily-salary-checkbox" onchange="showDaysInput()">
-
-                          </div>
-
-                          <div id="days-input-container" style="display: none;">
-                            <div class="mb-3">
-                              <label for="days-worked" class="form-label">Number of days worked:</label>
-                              <input type="number" class="form-control" id="days-worked" name="days-worked" onfocus="focused(this)" onfocusout="defocused(this)">
-                            </div>
-                          </div>
-
-                          <button type="button" class="btn btn-primary" value="calculate" onclick="myCalculate()" >calculate</button>
-                        </form>
-
-
-
-                      </div>
-                    </div>
-
-                    <script src="./JS/QuotesCalculator.js"></script>
-
-                    <div class="merge">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
-                    </div>
-
-                    <form class="QuotesCalculatorfills">
-                      <div class="QuotesCalculatorform">
-                        <label>Sub Amount</label>
-                        <input type="text" id="subAmount">
-                      </div>
-                      <div class="QuotesCalculatorform">
-                        <label>percentage</label>
-                        <input type="text" id="percentageinput">
-                        <button class="btn-sm btn-danger" id="percentage">
-                          <i class="fa-solid fa-plus"></i>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Quotes Calculator</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
                         </button>
                       </div>
-                      <div class="QuotesCalculatorform">
-                        <label>Total Amount</label>
-                        <input type="text" name="totalamount" id="totalamount">
+                      <div class="modal-body">
+
+                        <div class="addemployee">
+                          <button id="add-employee-btn" class="btn btn-primary">Add Employee</button>
+                        </div>
+
+                        <div class="formone" id="employee-forms-container">
+                          <div class="employee-form">
+
+                            <form class="p-2">
+
+                              <div id="removebtn" class="" onclick="remove(0)">
+                                <i class="fa-solid fa-xmark"></i>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="employee-name" class="form-label">Employee name:</label>
+                                <input type="text" class="form-control" id="employee-name" name="employee-name"
+                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="gross-salary" class="form-label">Gross Salary:</label>
+                                <input type="number" class="form-control" id="gross-salary" name="gross-salary"
+                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="gross-salary" class="form-label">Monthly</label>
+                                <input type="number" class="form-control Monthly" id="gross-salary" name="gross-salary"
+                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                              </div>
+
+                              <div class="mb-3 form-check checkboxfill">
+                                <label class="form-check-label checkboxfillLable" for="daily-salary-checkbox">Daily
+                                  salary?</label>
+                                <input type="checkbox" class="form-check-input" id="daily-salary-checkbox"
+                                  name="daily-salary-checkbox" onchange="showDaysInput()">
+
+                              </div>
+
+                              <div id="days-input-container" style="display: none;">
+                                <div class="mb-3">
+                                  <label for="days-worked" class="form-label">Number of days worked:</label>
+                                  <input type="number" class="form-control" id="days-worked" name="days-worked"
+                                    onfocus="focused(this)" onfocusout="defocused(this)">
+                                </div>
+                              </div>
+
+                              <button type="button" class="btn btn-primary" value="calculate"
+                                onclick="myCalculate()">calculate</button>
+                            </form>
+
+
+
+                          </div>
+                        </div>
+
+                        <script src="./JS/QuotesCalculator.js"></script>
+
+                        <div class="merge">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
+                        </div>
+
+                        <form class="QuotesCalculatorfills">
+                          <div class="QuotesCalculatorform">
+                            <label>Sub Amount</label>
+                            <input type="text" id="subAmount">
+                          </div>
+                          <div class="QuotesCalculatorform">
+                            <label>percentage</label>
+                            <input type="text" id="percentageinput">
+                            <button class="btn-sm btn-danger" id="percentage">
+                              <i class="fa-solid fa-plus"></i>
+                            </button>
+                          </div>
+                          <div class="QuotesCalculatorform">
+                            <label>Total Amount</label>
+                            <input type="text" name="totalamount" id="totalamount">
+                          </div>
+
+                          <div class="QuotesCalculatorbtn">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+
+                        </form>
+
                       </div>
-        
-                      <div class="QuotesCalculatorbtn">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-        
-                    </form>
-
-                  </div>
-                  <div id="merge">
-                    <div class="modal-footer">
+                      <div id="merge">
+                        <div class="modal-footer">
 
 
 
-                
-            
 
 
 
-                     
+
+
+
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-          </div>
+              </div>
               <form method="post">
                 <input type="text" id="editor_val1" name="editor_val1" style="display:none">
                 <input type="text" id="editor_val2" name="editor_val2" style="display:none">
@@ -423,7 +474,6 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <div class="Subject">
                   <label>Subject</label>
                   <input type="text" name="subject" value="<?php echo $subject ?>">
-
                 </div>
 
 
@@ -439,13 +489,13 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <div class="col-sm-8 selectCustomer">
                           <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
                             aria-hidden="true">
-                            <option value="<?php echo $customer_id ?>">Select Contact...</option>
+                            <option value="<?php echo $customer_id ?>"> <?php echo $customer_id ?></option>
                             <option value="John">John </option>
                             <option value="Conor Nolan">Conor Nolan </option>
                             <option value="Adrienne Zamora ">Adrienne Zamora </option>
-                            <option value="NULL" selected="selected"> select </option>
+
                           </select><span
-                           class="select2 select2-container select2-container--bootstrap select2-container--below"
+                            class="select2 select2-container select2-container--bootstrap select2-container--below"
                             dir="ltr" style="width: 313px;"><span class="selection"><span
                                 class="select2-selection select2-selection--single" role="combobox"
                                 aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"
@@ -482,7 +532,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <label for="cn" class="col-sm-4 control-label">GST Number</label>
 
                         <div class="col-sm-8">
-                          <input type="text" id="cn" name="cn" value="<?php echo $gst_number ?>" ><br>
+                          <input type="text" id="cn" name="cn" value="<?php echo $gst_number ?>"><br>
 
                         </div>
                       </div>
@@ -499,7 +549,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
                         <div class="col-sm-8">
                           <input type="date" id="idate" name="idate" datepicker="" data-date-format="yyyy-mm-dd"
-                            data-auto-close="true" value="<?php echo  $date_created ?>">
+                            data-auto-close="true" value="<?php echo $date_created ?>">
                         </div>
                       </div>
 
@@ -507,8 +557,8 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <label for="edate" class="col-sm-4 control-label">Expiry Date</label>
 
                         <div class="col-sm-8">
-                          <input type="date" class="" id="edate" name="edate" datepicker=""
-                            data-date-format="yyyy-mm-dd" data-auto-close="true" value="<?php echo   $expiry_date ?>">
+                          <input type="date" id="edate" name="edate" datepicker=""
+                            data-date-format="yyyy-mm-dd" data-auto-close="true" value="<?php echo date("Y/m/d") ?>">
                         </div>
                       </div>
 
@@ -516,10 +566,14 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <label for="stage" class="col-sm-4 control-label">Stage</label>
 
                         <div class="col-sm-8 selectCustomer">
+
                           <select class="" name="stage" id="stage">
+                            <option>
+                              <?php echo $stage ?>
+                            </option>
                             <option value="Draft">Draft</option>
                             <option value="Delivered">Delivered</option>
-                            <option value="Accepted" selected="">Accepted</option>
+                            <option value="Accepted">Accepted</option>
                             <option value="Lost">Lost</option>
                             <option value="Dead">Dead</option>
                           </select>
@@ -531,7 +585,8 @@ if ($result && mysqli_num_rows($result) > 0) {
 
                         <div class="col-sm-8 selectCustomer">
                           <select id="tid" name="tid" class="">
-                            <option value="">None</option>
+                            <option value="<?php echo $sales_tax_id ?>"><?php echo $sales_tax_id ?></option>
+                            <option value="None">None</option>
                             <option value="9.00%">CGST
                               (9.00%)
                             </option>
@@ -566,10 +621,13 @@ if ($result && mysqli_num_rows($result) > 0) {
 
                 <div class="editorone">
                   <b>​Proposal Text​</b>
-                  <div id="editor" name="ckeditor2">
+                  <div id="editor"  name="ckeditor2">
+
+                    <?php echo $text ?>
 
                   </div>
                   <script>
+
                     function getdata() {
 
                       console.log(CKEDITOR.instances.editor1.document);
@@ -577,6 +635,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
                       document.getElementById("editor_val1").value = htmldata;
                       console.log(htmldata);
+
                     }
 
                     ClassicEditor
@@ -591,124 +650,159 @@ if ($result && mysqli_num_rows($result) > 0) {
                   </script>
 
 
-          
-                <div class="Table">
-                  <table>
 
-                    <thead>
-                      <tr>
-                        <th>Item Code</th>
-                        <th>Item Name</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>TAX</th>
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                  <div class="Table">
+                    <table>
 
-                      <tr id="myList2">
-                        <td>1</td>
-                        <td> <textarea class="textarea" name="message"></textarea></td>
-                        <td><input type="text" name="input1"></td>
-                        <td><input type="text" name="input2"></td>
-                        <td>
+                      <thead>
+                        <tr>
+                          <th>Item Code</th>
+                          <th>Item Name</th>
+                          <th>Qty</th>
+                          <th>Price</th>
+                          <th>TAX</th>
+                          <th>Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
 
-                          <select name="option">
-                            <option value="YES">YES</option>
-                            <option value="NO">NO</option>
-                          </select>
-                        </td>
-                        <td><input type="text"></td>
+                        <tr id="myList2">
+                          <td>1</td>
+                          <td> <textarea class="textarea" name="message"><?php echo $message ?></textarea></td>
+                          <td><input type="text" name="input1" value="<?php echo $input1 ?>"></td>
+                          <td><input type="text" name="input2" value="<?php echo $input2 ?>"></td>
+                          <td>
 
-                      </tr>
+                            <select name="option">
 
+                              <?php
 
-                      <tr id="myList1">
+                              if ($option == "YES") {
+                                echo ' <option value="' . $option . '"> ' . $option . ' </option>
+                                   <option value="NO">NO</option>';
+                              } else {
+                                echo '<option value="' . $option . '"> ' . $option . ' </option>
+                                  <option value="YES">YES</option>';
+                              }
+                              ?>
+                            </select>
+                          </td>
+                          <td><input type="text" name="totalamount" value="<?php echo $totalamount ?>"></td>
 
-                      </tr>
-
-                    </tbody>
-
-                    <tbody>
-
-                    </tbody>
-                  </table>
-
-                  <script>
-
-                  </script>
+                        </tr>
 
 
+                        <tr id="myList1">
 
-                  <div class="Tablebtn">
-                    <button type="button" class="btn btn-info" onclick="myFunction()">Add blank Line</button>
-                    <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+                        </tr>
+
+                      </tbody>
+
+                      <tbody>
+
+                      </tbody>
+                    </table>
+
+                    <script>
+
+                    </script>
+
+
+
+                    <div class="Tablebtn">
+                      <button type="button" class="btn btn-info" onclick="myFunction()">Add blank Line</button>
+                      <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+                    </div>
+
+                    <div class="bill">
+                      <div>
+                        <p>Sub Total :</p>
+                        <p>
+                          <?php echo $input2 ?>
+                        </p>
+                      </div>
+                      <div>
+
+                      <?php                       
+                      $taxamount = $input2 * $sales_tax_id / 100;
+                      $afterTaxAmount = $input2 + $taxamount;
+                      ?>
+
+                        <p>TAX :</p>
+                        <p>
+                          <?php
+                          if ($option == "YES") {
+                            echo $taxamount;
+                          } else {
+                            echo "0.00";
+                          } ?>
+                        </p>
+                      </div>
+                      <div>
+                        <p>TOTAL : </p>
+                        <p>
+                          <?php
+
+                          if ($option == "YES") {
+                            echo $afterTaxAmount;
+                          } else {
+                            echo $input2;
+                          }
+
+                          ?>
+                        </p>
+                      </div>
+                    </div>
+
                   </div>
-
-                  <div class="bill">
-                    <div>
-                      <p>Sub Total :</p>
-                      <p>00</p>
-                    </div>
-                    <div>
-                      <p>TAX :</p>
-                      <p>00</p>
-                    </div>
-                    <div>
-                      <p>TOTAL : </p>
-                      <p>00</p>
-                    </div>
+                  <div class="editclose">
+                    <button type="button" class="btn btn-primary">close</button>
+                    <button type="submit" name="submit" onclick="getdata()" class="btn btn-info">Save</button>
+                    <!-- <button type="submit" name="submit" class="btn btn-info">Save</button> -->
                   </div>
-
-                </div>
-                <div class="editclose">
-                <button type="button" class="btn btn-primary">close</button>
-                <button type="submit" name="submit" onclick="getdata()" class="btn btn-info">Save</button>
-                    </div>
               </form>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="footer py-4  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="container copy-right-container">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                copyright ©
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+
+                <a href="https://yrpitsolutions.com/" class="font-weight-bold  texthovercolor" target="_blank">YRP IT
+                  SOLUTIONS</a>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link text-muted" target="_blank">About
+                  Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="container copy-right-container">
-                <div class="copyright text-center text-sm text-muted text-lg-start">
-                  copyright ©
-                  <script>
-                    document.write(new Date().getFullYear())
-                  </script>,
-
-                  <a href="https://yrpitsolutions.com/" class="font-weight-bold  texthovercolor" target="_blank">YRP IT
-                    SOLUTIONS</a>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">About
-                    Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+    </footer>
   </main>
   <div class="container">
 

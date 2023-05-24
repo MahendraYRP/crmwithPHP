@@ -447,12 +447,12 @@ if (isset($_POST['save'])) {
                             <td>
 
                               <div class="btn-holder">
-                               <a> <button type="button" name='.$id.'  class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="update(' . $id . ')">
+                               <a> <button type="button" name='.$id.'  class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal'.$id.'" onclick="update(' . $id . ')">
                                   <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
                                 </a>
 
-                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="editModal'.$id.'" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -502,7 +502,7 @@ if (isset($_POST['save'])) {
                                                 <option value="HR">HR</option>
                                               </select>
                                             </div>
-                                          </div>
+                                          </div> 
                                           <div class="form-group">
                                             <div>
                                               <label>Gross</label>

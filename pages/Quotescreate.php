@@ -17,14 +17,12 @@ if (isset($_POST['submit'])) {
   $stage = $_POST['stage'];
   $sales_tax_id = $_POST['tid'];
   $text = $_POST['editor_val1'];
-
-
   // Retrieve the form data
 $message = $_POST['message'];
 $input1 = $_POST['input1'];
 $input2 = $_POST['input2'];
 $option = $_POST['option'];
-$totalamount  = $_POST['totalamount '];
+$totalamount = $_POST['totalamount'];
 
   $sql = "INSERT INTO `quotes` (subject, customer_id, address, quote_prefix, gst_number, date_created, expiry_date,
   stage, sales_tax_id,ckeditor2,message, input1, input2, option,totalamount)
@@ -395,7 +393,7 @@ $totalamount  = $_POST['totalamount '];
                       </div>
                       <div class="QuotesCalculatorform">
                         <label>Total Amount</label>
-                        <input type="text" name="totalamount" id="totalamount">
+                        <input type="text" name="totalamountone" id="totalamountone">
                       </div>
         
                       <div class="QuotesCalculatorbtn">
@@ -533,7 +531,6 @@ $totalamount  = $_POST['totalamount '];
                             <option value="Dead">Dead</option>
                           </select>
                         </div>
-
                       </div>
                       <div class="form-group">
                         <label for="tid" class="col-sm-4 control-label">Sales TAX</label>
@@ -628,7 +625,7 @@ $totalamount  = $_POST['totalamount '];
                             <option value="NO">NO</option>
                           </select>
                         </td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="totalamount"></td>
 
                       </tr>
 

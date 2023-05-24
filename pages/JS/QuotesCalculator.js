@@ -22,7 +22,7 @@ addEmployeeBtn.addEventListener("click", (e) => {
 
   <div class="mb-3">
     <label for="employee-name" class="form-label">Employee name:</label>
-    <input type="text" class="form-control" id="employee-name${i}" name="employee-name" >
+    <input type="text" class="form-control" id="employee-name${i}" name="employee-name" value="${i}">
   </div>
   
   <div class="mb-3">
@@ -40,14 +40,14 @@ addEmployeeBtn.addEventListener("click", (e) => {
     
   </div>
   
-  <div id="days-input-container${i++}" style="display: none;">
+  <div id="days-input-container${i}" style="display: none;">
     <div class="mb-3">
       <label for="days-worked" class="form-label">Number of days worked:</label>
       <input type="number" class="form-control" id="days-worked${i}" name="days-worked">
     </div>
   </div>
 
-  <button type="button" id="calculateButton" class="btn btn-primary">calculate</button>
+  <button type="button" id="calculateButton" onclick="myName(${i++})" class="btn btn-primary">calculate</button>
   </form> 
   <div>
 
@@ -73,6 +73,14 @@ function showDaysInput(val = 0) {
     daysInput.style.display = "none";
   }
 
+}
+
+
+
+function myName(i) {
+  console.log(i);
+ var Monthlyamount =  document.getElementsByClassName(`Monthly${i}`)[0].value;
+ console.log(Monthlyamount);
 }
 
 

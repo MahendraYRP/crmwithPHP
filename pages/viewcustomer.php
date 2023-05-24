@@ -40,7 +40,7 @@ include("connection.php");
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/dashboard.html">
+          <a class="nav-link text-white " href="../pages/dashboard.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -48,7 +48,7 @@ include("connection.php");
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="../pages/tables.html">
+          <a class="nav-link text-white" href="../pages/tables.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -66,7 +66,7 @@ include("connection.php");
         </li>
         
         <li class="nav-item">
-          <a class="nav-link text-white active bg-primary" href="../pages/customers.html">
+          <a class="nav-link text-white active bg-primary" href="../pages/customers.php">
             <div class="text-white text-center me-2 d-flex align-items-center  justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -107,8 +107,8 @@ include("connection.php");
       <div class="container-fluid py-1 px-3">
       <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav" href="dashboard.html">Dashboard</a></li>
-            <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="pagenav" href="./customers.html">Customers</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav" href="dashboard.php">Dashboard</a></li>
+            <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="pagenav" href="./customers.php">Customers</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page">View Customer</li>
           </ol>
           <!-- <h6 class="font-weight-bolder mb-0">Add Customers</h6> -->

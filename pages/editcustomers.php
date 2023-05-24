@@ -148,8 +148,8 @@ if(isset($_POST['submit'])){
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav" href="dashboard.html">Dashboard</a></li>
-            <li class="breadcrumb-item text-sm text-dark" aria-current="page"><a class="pagenav" href="./customers.html">Customers</a>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav" href="dashboard.php">Dashboard</a></li>
+            <li class="breadcrumb-item text-sm text-dark" aria-current="page"><a class="pagenav" href="./customers.php">Customers</a>
             <li class="breadcrumb-item text-sm text-dark" aria-current="page">Edit Customers
             </li>
           </ol>

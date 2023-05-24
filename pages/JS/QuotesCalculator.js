@@ -22,12 +22,12 @@ addEmployeeBtn.addEventListener("click", (e) => {
 
   <div class="mb-3">
     <label for="employee-name" class="form-label">Employee name:</label>
-    <input type="text" class="form-control" id="employee-name${i}" name="employee-name" value="${i}">
+    <input type="text" class="form-control" id="employee-name${i}" name="employee-name">
   </div>
   
   <div class="mb-3">
     <label for="gross-salary" class="form-label">Gross Salary:</label>
-    <input type="number" class="form-control" id="gross-salary${i}" name="gross-salary" >
+    <input type="number" class="form-control grossSalary${i}" id="gross-salary${i}" name="gross-salary" >
   </div>
   <div class="mb-3">
     <label for="gross-salary" class="form-label">Monthly</label>
@@ -80,7 +80,10 @@ function showDaysInput(val = 0) {
 function myName(i) {
   console.log(i);
  var Monthlyamount =  document.getElementsByClassName(`Monthly${i}`)[0].value;
+ var grossSalary =  document.getElementsByClassName(`grossSalary${i}`)[0].value;
+
  console.log(Monthlyamount);
+ console.log(grossSalary);
 }
 
 
@@ -124,8 +127,9 @@ function myCalculate() {
 
   percentage.addEventListener('click', (e) => {
     e.preventDefault()
-    var subAmountPercentage = subMonthlyPay + (percentageinput.value / 100);
-    totalAmount.value = Math.round(subAmountPercentage);
+    var subAmountPercentage = subMonthlyPay * (percentageinput.value / 100);
+    document.getElementById("totalamountone").value = Math.round(subAmountPercentage+subMonthlyPay);
+     ;
   })
 
 

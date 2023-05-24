@@ -142,7 +142,7 @@ if ($result) {
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/dashboard.html">
+          <a class="nav-link text-white " href="../pages/dashboard.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -160,7 +160,7 @@ if ($result) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="../pages/employees.html">
+          <a class="nav-link text-white" href="../pages/employees.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -169,7 +169,7 @@ if ($result) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="./customers.html">
+          <a class="nav-link text-white" href="./customers.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -188,8 +188,8 @@ if ($result) {
 
             <div class="dropdown-container">
               <!-- <a class="text-white" href="../pages/settingsEmail.html">Add Email</a> -->
-              <a class="text-white" href="../pages/TableSettings.html">Email Details</a>
-              <a class="text-white" href="../pages/staff.html">User</a>
+              <a class="text-white" href="../pages/TableSettings.php">Email Details</a>
+              <a class="text-white" href="../pages/staff.phpd">User</a>
             </div>
 
           </div>
@@ -215,7 +215,7 @@ if ($result) {
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav"
-                href="./dashboard.html">Dashboard</a></li>
+                href="./dashboard.php">Dashboard</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="pagenav"
                 href="./tables.php">Quotes</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page">Edit Quotes</li>

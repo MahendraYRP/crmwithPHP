@@ -51,7 +51,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/dashboard.html">
+          <a class="nav-link text-white " href="../pages/dashboard.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -60,7 +60,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white bg-primary bg-gradient-primary" href="../pages/tables.html">
+          <a class="nav-link text-white bg-primary bg-gradient-primary" href="../pages/tables.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -128,7 +128,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="./dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="./dashboard.php">Dashboard</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page">Quotes</li>
           </ol>
           <!-- <h6 class="font-weight-bolder mb-0">Quotes</h6> -->
@@ -365,9 +365,9 @@ if ($result) {
       </button>
     </a>
 
-      <button type="button" class="btn btn-danger btn-sm" onclick="deleteFuncation()">
+     <a href="deleteQuotes.php?deleteQuotesid='.$id.'"> <button type="button" class="btn btn-danger btn-sm"> 
         <i class="fa-solid fa-trash"></i>
-      </button>
+      </button></a>
       <button type="button" class="btn bg-gradient-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa-solid fa-eye"></i>
       </button>

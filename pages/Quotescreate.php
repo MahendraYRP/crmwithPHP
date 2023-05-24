@@ -18,11 +18,11 @@ if (isset($_POST['submit'])) {
   $sales_tax_id = $_POST['tid'];
   $text = $_POST['editor_val1'];
   // Retrieve the form data
-$message = $_POST['message'];
-$input1 = $_POST['input1'];
-$input2 = $_POST['input2'];
-$option = $_POST['option'];
-$totalamount = $_POST['totalamount'];
+  $message = $_POST['message'];
+  $input1 = $_POST['input1'];
+  $input2 = $_POST['input2'];
+  $option = $_POST['option'];
+  $totalamount = $_POST['totalamount'];
 
   $sql = "INSERT INTO `quotes` (subject, customer_id, address, quote_prefix, gst_number, date_created, expiry_date,
   stage, sales_tax_id,ckeditor2,message, input1, input2, option,totalamount)
@@ -33,7 +33,7 @@ $totalamount = $_POST['totalamount'];
   // Execute the SQL statement
   if (mysqli_query($con, $sql)) {
     echo "Data inserted successfully.";
-   
+
     header("location:tables.php");
   } else {
     echo "Error: " . mysqli_error($conn);
@@ -104,7 +104,7 @@ $totalamount = $_POST['totalamount'];
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/dashboard.html">
+          <a class="nav-link text-white " href="../pages/dashboard.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -122,7 +122,7 @@ $totalamount = $_POST['totalamount'];
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="../pages/employees.html">
+          <a class="nav-link text-white" href="../pages/employees.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -131,7 +131,7 @@ $totalamount = $_POST['totalamount'];
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="./customers.html">
+          <a class="nav-link text-white" href="./customers.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -150,8 +150,8 @@ $totalamount = $_POST['totalamount'];
 
             <div class="dropdown-container">
               <!-- <a class="text-white" href="../pages/settingsEmail.html">Add Email</a> -->
-              <a class="text-white" href="../pages/TableSettings.html">Email Details</a>
-              <a class="text-white" href="../pages/staff.html">User</a>
+              <a class="text-white" href="../pages/TableSettings.php">Email Details</a>
+              <a class="text-white" href="../pages/staff.php">User</a>
             </div>
 
           </div>
@@ -177,7 +177,7 @@ $totalamount = $_POST['totalamount'];
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark dashnav"
-                href="./dashboard.html">Dashboard</a></li>
+                href="./dashboard.php">Dashboard</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="pagenav"
                 href="./tables.php">Quotes</a></li>
             <li class="breadcrumb-item text-sm text-dark " aria-current="page">Create Quotes</li>
@@ -295,8 +295,6 @@ $totalamount = $_POST['totalamount'];
           </ul>
         </div>
       </div>
-
-
     </nav>
 
     <div>
@@ -305,123 +303,130 @@ $totalamount = $_POST['totalamount'];
           <div class="fillsbox">
 
             <div class="textfills p-3 ">
-            <div class="Quotescalculator">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Quotes Calculator
-            </button>
+              <div class="Quotescalculator">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Quotes Calculator
+                </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Quotes Calculator</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-
-                    <div class="addemployee">
-                      <button id="add-employee-btn" class="btn btn-primary">Add Employee</button>
-                    </div>
-
-                    <div class="formone" id="employee-forms-container">
-                      <div class="employee-form">
-
-                        <form class="p-2">
-
-                          <div id="removebtn" class="" onclick="remove(0)">
-                              <i class="fa-solid fa-xmark"></i>
-                          </div>
-                         
-                          <div class="mb-3">
-                            <label for="employee-name" class="form-label">Employee name:</label>
-                            <input type="text" class="form-control" id="employee-name" name="employee-name"  onfocus="focused(this)" onfocusout="defocused(this)">
-                          </div>
-
-                          <div class="mb-3">
-                            <label for="gross-salary" class="form-label">Gross Salary:</label>
-                            <input type="number" class="form-control" id="gross-salary" name="gross-salary"  onfocus="focused(this)" onfocusout="defocused(this)">
-                          </div>                      
-
-                          <div class="mb-3">
-                            <label for="gross-salary" class="form-label">Monthly</label>
-                            <input type="number" class="form-control Monthly" id="gross-salary" name="gross-salary"  onfocus="focused(this)" onfocusout="defocused(this)">
-                          </div>
-
-                          <div class="mb-3 form-check checkboxfill">
-                            <label class="form-check-label checkboxfillLable" for="daily-salary-checkbox">Daily
-                              salary?</label>
-                            <input type="checkbox" class="form-check-input" id="daily-salary-checkbox" name="daily-salary-checkbox" onchange="showDaysInput()">
-
-                          </div>
-
-                          <div id="days-input-container" style="display: none;">
-                            <div class="mb-3">
-                              <label for="days-worked" class="form-label">Number of days worked:</label>
-                              <input type="number" class="form-control" id="days-worked" name="days-worked" onfocus="focused(this)" onfocusout="defocused(this)">
-                            </div>
-                          </div>
-
-                          <button type="button" class="btn btn-primary" value="calculate" onclick="myCalculate()" >calculate</button>
-                        </form>
-
-
-
-                      </div>
-                    </div>
-
-                    <script src="./JS/QuotesCalculator.js"></script>
-
-                    <div class="merge">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
-                    </div>
-
-                    <form class="QuotesCalculatorfills">
-                      <div class="QuotesCalculatorform">
-                        <label>Sub Amount</label>
-                        <input type="text" id="subAmount">
-                      </div>
-                      <div class="QuotesCalculatorform">
-                        <label>percentage</label>
-                        <input type="text" id="percentageinput">
-                        <button class="btn-sm btn-danger" id="percentage">
-                          <i class="fa-solid fa-plus"></i>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Quotes Calculator</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
                         </button>
                       </div>
-                      <div class="QuotesCalculatorform">
-                        <label>Total Amount</label>
-                        <input type="text" name="totalamountone" id="totalamountone">
+                      <div class="modal-body">
+
+                        <div class="addemployee">
+                          <button id="add-employee-btn" class="btn btn-primary">Add Employee</button>
+                        </div>
+
+                        <div class="formone" id="employee-forms-container">
+                          <div class="employee-form">
+
+                            <form class="p-2">
+
+                              <div id="removebtn" class="" onclick="remove(0)">
+                                <i class="fa-solid fa-xmark"></i>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="employee-name" class="form-label">Employee name:</label>
+                                <input type="text" class="form-control" id="employee-name" name="employee-name"
+                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="gross-salary" class="form-label">Gross Salary:</label>
+                                <input type="number" class="form-control" id="gross-salary" name="gross-salary"
+                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="gross-salary" class="form-label">Monthly</label>
+                                <input type="number" class="form-control Monthly" id="gross-salary" name="gross-salary"
+                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                              </div>
+
+                              <div class="mb-3 form-check checkboxfill">
+                                <label class="form-check-label checkboxfillLable" for="daily-salary-checkbox">Daily
+                                  salary?</label>
+                                <input type="checkbox" class="form-check-input" id="daily-salary-checkbox"
+                                  name="daily-salary-checkbox" onchange="showDaysInput()">
+
+                              </div>
+
+                              <div id="days-input-container" style="display: none;">
+                                <div class="mb-3">
+                                  <label for="days-worked" class="form-label">Number of days worked:</label>
+                                  <input type="number" class="form-control" id="days-worked" name="days-worked"
+                                    onfocus="focused(this)" onfocusout="defocused(this)">
+                                </div>
+                              </div>
+
+                              <button type="button" class="btn btn-primary" value="calculate"
+                                onclick="myCalculate()">calculate</button>
+                            </form>
+
+
+
+                          </div>
+                        </div>
+
+                        <script src="./JS/QuotesCalculator.js"></script>
+
+                        <div class="merge">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
+                        </div>
+
+                        <form class="QuotesCalculatorfills">
+                          <div class="QuotesCalculatorform">
+                            <label>Sub Amount</label>
+                            <input type="text" id="subAmount">
+                          </div>
+                          <div class="QuotesCalculatorform">
+                            <label>percentage</label>
+                            <input type="text" id="percentageinput">
+                            <button class="btn-sm btn-danger" id="percentage">
+                              <i class="fa-solid fa-plus"></i>
+                            </button>
+                          </div>
+                          <div class="QuotesCalculatorform">
+                            <label>Total Amount</label>
+                            <input type="text" name="totalamountone" id="totalamountone">
+                          </div>
+
+                          <div class="QuotesCalculatorbtn">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+
+                        </form>
+
                       </div>
-        
-                      <div class="QuotesCalculatorbtn">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-        
-                    </form>
-
-                  </div>
-                  <div id="merge">
-                    <div class="modal-footer">
+                      <div id="merge">
+                        <div class="modal-footer">
 
 
 
-                
-            
 
 
 
-                     
+
+
+
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-          </div>
+              </div>
               <form method="post">
                 <input type="text" id="editor_val1" name="editor_val1" style="display:none">
                 <input type="text" id="editor_val2" name="editor_val2" style="display:none">
@@ -451,15 +456,16 @@ $totalamount = $_POST['totalamount'];
                             <option value="Adrienne Zamora ">Adrienne Zamora </option>
                             <option value="NULL" selected="selected"> select </option>
                           </select><span>
-                           <class="select2 select2-container select2-container--bootstrap select2-container--below"
-                            dir="ltr" style="width: 313px;"><span class="selection"><span
-                                class="select2-selection select2-selection--single" role="combobox"
-                                aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                aria-labelledby="select2-cid-container"><span class="select2-selection__rendered"
-                                  id="select2-cid-container" title="test12 "> </span><span
-                                  class="select2-selection__arrow" role="presentation"><b
-                                    role="presentation"></b></span></span></span><span class="dropdown-wrapper"
-                              aria-hidden="true"></span></span>
+                            <class="select2 select2-container select2-container--bootstrap select2-container--below"
+                              dir="ltr" style="width: 313px;"><span class="selection"><span
+                                  class="select2-selection select2-selection--single" role="combobox"
+                                  aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                  aria-labelledby="select2-cid-container"><span class="select2-selection__rendered"
+                                    id="select2-cid-container" title="test12 "> </span><span
+                                    class="select2-selection__arrow" role="presentation"><b
+                                      role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+                                aria-hidden="true"></span>
+                          </span>
                           <span class="help-block"><a href="./view.html" id="contact_add"> <br>
                             </a> </span>
                         </div>
@@ -597,133 +603,133 @@ $totalamount = $_POST['totalamount'];
                   </script>
 
 
-          
-                <div class="Table">
-                  <table>
 
-                    <thead>
-                      <tr>
-                        <th>Item Code</th>
-                        <th>Item Name</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>TAX</th>
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                  <div class="Table">
+                    <table>
 
-                      <tr id="myList2">
-                        <td>1</td>
-                        <td> <textarea class="textarea" name="message"></textarea></td>
-                        <td><input type="text" name="input1"></td>
-                        <td><input type="text" name="input2"></td>
-                        <td>
+                      <thead>
+                        <tr>
+                          <th>Item Code</th>
+                          <th>Item Name</th>
+                          <th>Qty</th>
+                          <th>Price</th>
+                          <th>TAX</th>
+                          <th>Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
 
-                          <select name="option">
-                            <option value="YES">YES</option>
-                            <option value="NO">NO</option>
-                          </select>
-                        </td>
-                        <td><input type="text" name="totalamount"></td>
+                        <tr id="myList2">
+                          <td>1</td>
+                          <td> <textarea class="textarea" name="message"></textarea></td>
+                          <td><input type="text" name="input1"></td>
+                          <td><input type="text" name="input2"></td>
+                          <td>
 
-                      </tr>
+                            <select name="option">
+                              <option value="YES">YES</option>
+                              <option value="NO">NO</option>
+                            </select>
+                          </td>
+                          <td><input type="text" name="totalamount"></td>
 
-
-                      <tr id="myList1">
-
-                      </tr>
-
-                    </tbody>
-
-                    <tbody>
-
-                    </tbody>
-                  </table>
-
-                  <script>
-
-                  </script>
+                        </tr>
 
 
+                        <tr id="myList1">
 
-                  <div class="Tablebtn">
-                    <button type="button" class="btn btn-info" onclick="myFunction()">Add blank Line</button>
-                    <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+                        </tr>
+
+                      </tbody>
+
+                      <tbody>
+
+                      </tbody>
+                    </table>
+
+                    <script>
+
+                    </script>
+
+
+
+                    <div class="Tablebtn">
+                      <button type="button" class="btn btn-info" onclick="myFunction()">Add blank Line</button>
+                      <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+                    </div>
+
+                    <div class="bill">
+                      <div>
+                        <p>Sub Total :</p>
+                        <p>00</p>
+                      </div>
+                      <div>
+                        <p>TAX :</p>
+                        <p>00</p>
+                      </div>
+                      <div>
+                        <p>TOTAL : </p>
+                        <p>00</p>
+                      </div>
+                    </div>
+
                   </div>
-
-                  <div class="bill">
-                    <div>
-                      <p>Sub Total :</p>
-                      <p>00</p>
-                    </div>
-                    <div>
-                      <p>TAX :</p>
-                      <p>00</p>
-                    </div>
-                    <div>
-                      <p>TOTAL : </p>
-                      <p>00</p>
-                    </div>
+                  <div class="editclose">
+                    <button type="button" class="btn btn-primary">close</button>
+                    <button type="submit" name="submit" onclick="getdata()" class="btn btn-info">Save</button>
                   </div>
-
-                </div>
-                <div class="editclose">
-                <button type="button" class="btn btn-primary">close</button>
-                <button type="submit" name="submit" onclick="getdata()" class="btn btn-info">Save</button>
-                    </div>
               </form>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer py-4  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="container copy-right-container">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                copyright ©
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+
+                <a href="https://yrpitsolutions.com/" class="font-weight-bold  texthovercolor" target="_blank">YRP IT
+                  SOLUTIONS</a>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link text-muted" target="_blank">About
+                  Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="container copy-right-container">
-                <div class="copyright text-center text-sm text-muted text-lg-start">
-                  copyright ©
-                  <script>
-                    document.write(new Date().getFullYear())
-                  </script>,
-
-                  <a href="https://yrpitsolutions.com/" class="font-weight-bold  texthovercolor" target="_blank">YRP IT
-                    SOLUTIONS</a>
-
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">About
-                    Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+    </footer>
   </main>
   <div class="container">
 

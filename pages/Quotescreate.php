@@ -448,15 +448,47 @@ if (isset($_POST['submit'])) {
                         <label for="cid" class="col-sm-4 control-label">Customer</label>
 
                         <div class="col-sm-8 selectCustomer">
-                          <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
+                          <!-- <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
                             aria-hidden="true">
                             <option value="">Select Contact...</option>
                             <option value="John">John </option>
                             <option value="Conor Nolan">Conor Nolan </option>
                             <option value="Adrienne Zamora ">Adrienne Zamora </option>
-                            <option value="NULL" selected="selected"> select </option>
-                          </select><span>
-                            <class="select2 select2-container select2-container--bootstrap select2-container--below"
+                            <option value="select" selected="selected"> select </option>
+                          </select> -->
+
+                          <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
+                            aria-hidden="true">
+                         <?php 
+
+                         include "connection.php";
+
+                          $sql = "SELECT * FROM `customer`";
+
+                          $result = mysqli_query($con,$sql);
+                         
+                          if($result){
+                          while( $row = mysqli_fetch_assoc($result)){ 
+
+                        $name = $row['name'];
+                        echo '                   
+                        <option value="Adrienne Zamora ">'. $name.'</option>
+                                   
+                        ';
+
+
+                       }}
+                         ?>
+
+
+</select>
+
+
+
+
+
+                          
+                          <span class="select2 select2-container select2-container--bootstrap select2-container--below"
                               dir="ltr" style="width: 313px;"><span class="selection"><span
                                   class="select2-selection select2-selection--single" role="combobox"
                                   aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0"
@@ -589,7 +621,7 @@ if (isset($_POST['submit'])) {
                         <td>1</td>
                         <td> <textarea class="textarea" name="message"></textarea></td>
                         <td><input type="text" name="input1"></td>
-                        <td><input type="text" id="inputbox" onkeydown="callFuncation()" name="input2"></td>
+                        <td><input type="text" id="inputbox"  onkeydown="callFuncation()" name="input2"></td>
                         <td>
                           <input type="text" id="option" onclick="updateTax()" autocomplete="off">
                         </td>

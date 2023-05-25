@@ -486,15 +486,51 @@ if (isset($_POST['submit'])) {
                       <div class="form-group">
                         <label for="cid" class="col-sm-4 control-label">Customer</label>
 
-                        <div class="col-sm-8 selectCustomer">
-                          <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
+                         <div class="col-sm-8 selectCustomer">
+
+                         <!-- <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
                             aria-hidden="true">
                             <option value="<?php echo $customer_id ?>"> <?php echo $customer_id ?></option>
                             <option value="John">John </option>
                             <option value="Conor Nolan">Conor Nolan </option>
                             <option value="Adrienne Zamora ">Adrienne Zamora </option>
 
-                          </select><span
+                          </select> -->
+                          
+                          
+                          
+                  <select id="cid" name="cid" class="select2-hidden-accessible" tabindex="-1"
+                            aria-hidden="true">
+                         <?php 
+
+                         include "connection.php";
+
+                          $sql = "SELECT * FROM `customer`";
+
+                          $result = mysqli_query($con,$sql);
+                         
+                          if($result){
+                          while( $row = mysqli_fetch_assoc($result)){ 
+                                                
+                        $name = $row['name'];
+                        echo ' 
+                                        
+                        <option value="Adrienne Zamora ">'. $name.'</option>
+                                    
+                        ';
+
+
+                       }}
+                         ?>
+                          
+                          
+                          </select>  
+                          
+                          
+                          
+                          
+                          
+                          <span
                             class="select2 select2-container select2-container--bootstrap select2-container--below"
                             dir="ltr" style="width: 313px;"><span class="selection"><span
                                 class="select2-selection select2-selection--single" role="combobox"
@@ -589,10 +625,10 @@ if (isset($_POST['submit'])) {
                             <option value="<?php echo $sales_tax_id ?>"><?php echo $sales_tax_id ?></option>
                             <option value="0">None</option>
 
-                            <option value="18.00%">SGST , CGST
+                            <option value="18">SGST , CGST
                               (18.00%)
                             </option>
-                            <option value="18.00%">SGST
+                            <option value="18">SGST
                               (18.00%)
                             </option>
 
@@ -627,25 +663,34 @@ if (isset($_POST['submit'])) {
                         <th>Total</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="itemTableFills">
 
-                      <tr id="myList2">
+                    <tr id="myList2">
                         <td>1</td>
                         <td> <textarea class="textarea" name="message"><?php echo $message ?></textarea></td>
                         <td><input type="text" name="input1" value="<?php echo $input1 ?>"></td>
-                        <td><input type="text" name="input2" value="<?php echo $input2 ?>"></td>
+                        <td><input type="text" id="inputbox"  onkeydown="callFuncation()"  name="input2" value="<?php echo $input2 ?>"></td>
                         <td>
 
-                          <input type="text" id="option">
+                          <input type="text" id="option" onclick="updateTax()" autocomplete="off">
                         </td>
-                        <td><input type="text" name="totalamount" value="<?php echo $totalamount ?>"></td>
+                        <td><input type="text" id="totalamount" name="totalamount" value="<?php echo $totalamount ?>"></td>
 
-                      </tr>
+                      </tr> 
+
+                      <!-- <tr id="myList2">
+                        <td>1</td>
+                        <td> <textarea class="textarea" name="message"></textarea></td>
+                        <td><input type="text" name="input1"></td>
+                        <td><input type="text" id="inputbox"  onkeydown="callFuncation()" name="input2"></td>
+                        <td>
+                          <input type="text" id="option" onclick="updateTax()" autocomplete="off">
+                        </td>
+                        <td><input type="text" id="totalamount" class="totalamount" name="totalamount"></td>
+
+                      </tr> -->
 
 
-                      <tr id="myList1">
-
-                      </tr>
 
                     </tbody>
 
@@ -656,7 +701,7 @@ if (isset($_POST['submit'])) {
 
                   <div class="Tablebtn">
                     <button type="button" class="btn btn-info" id="addBlankLine">Add blank Line</button>
-                    <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+                    <button type="button" class="btn btn-primary" id="deleteLastElement">Delete</button>
                   </div>
 
                   <div class="bill">

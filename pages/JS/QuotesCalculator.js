@@ -157,14 +157,10 @@ document.getElementById('idate').setAttribute('value', formattedDate);
 
 // -------------------------------------------------------------------------------------
 
-
-
-
-
-
 const myListTwo = document.getElementById('myList2');
 const itemTableFills = document.getElementById('itemTableFills');
 var j = 2;
+
 document.getElementById('addBlankLine').addEventListener('click', () => {
 
   var tr = document.createElement('tr');

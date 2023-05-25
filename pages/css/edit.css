@@ -218,6 +218,10 @@ padding-right: 40px;
   text-decoration: none;
 }
 
+.select2-hidden-accessible{
+  padding-left: 20px;
+}
+
 @media screen and (max-device-width:767px){
 .mediacol{
   display: flex;

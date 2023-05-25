@@ -47,7 +47,7 @@ addEmployeeBtn.addEventListener("click", (e) => {
     </div>
   </div>
 
-  <button type="button" id="calculateButton" onclick="myName(${i++})" class="btn btn-primary">calculate</button>
+  <button type="button" id="calculateButton" onclick="myCalculate(${i++})" class="btn btn-primary">calculate</button>
   </form> 
   <div>
 
@@ -60,7 +60,7 @@ addEmployeeBtn.addEventListener("click", (e) => {
 });
 
 function showDaysInput(val = 0) {
-  
+
   var checkbox = document.getElementById("daily-salary-checkbox");
   var daysInput = document.getElementById("days-input-container");
   if (val != 0) {
@@ -79,11 +79,11 @@ function showDaysInput(val = 0) {
 
 function myName(i) {
   console.log(i);
- var Monthlyamount =  document.getElementsByClassName(`Monthly${i}`)[0].value;
- var grossSalary =  document.getElementsByClassName(`grossSalary${i}`)[0].value;
+  var Monthlyamount = document.getElementsByClassName(`Monthly${i}`)[0].value;
+  var grossSalary = document.getElementsByClassName(`grossSalary${i}`)[0].value;
 
- console.log(Monthlyamount);
- console.log(grossSalary);
+  console.log(Monthlyamount);
+  console.log(grossSalary);
 }
 
 
@@ -97,13 +97,13 @@ function remove(i) {
 }
 
 
-function myCalculate() {
-  // e.preventDefault();
-  // console.log(e);
-  
+function myCalculate(i) {
+  var monthly = document.getElementsByClassName(`Monthly${i}`)[0].value;
+  var grossSalary = document.getElementsByClassName(`grossSalary${i}`)[0].value;
+
   const employeeName = document.getElementById('employee-name').value;
-  const grossSalary = document.getElementById('gross-salary').value;
-  const monthly = document.querySelector('.Monthly');
+  // const grossSalary = document.getElementById('gross-salary').value;
+  // const monthly = document.querySelector('.Monthly');
   const daysWorked = document.getElementById('days-worked').value;
   //Calculate totle anount
   const subAmount = document.getElementById("subAmount");
@@ -128,10 +128,126 @@ function myCalculate() {
   percentage.addEventListener('click', (e) => {
     e.preventDefault()
     var subAmountPercentage = subMonthlyPay * (percentageinput.value / 100);
-    document.getElementById("totalamountone").value = Math.round(subAmountPercentage+subMonthlyPay);
-     ;
+    document.getElementById("totalamountone").value = Math.round(subAmountPercentage + subMonthlyPay);
+    ;
   })
 
 
 }
+
+
+
+
+// ---------------------------------------------------------------------------------------------
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+var formattedDate = yyyy + '-' + mm + '-' + dd;
+// Set the min and value attributes of the input
+document.getElementById('edate').setAttribute('min', formattedDate);
+document.getElementById('edate').setAttribute('value', formattedDate);
+
+document.getElementById('idate').setAttribute('max', formattedDate);
+document.getElementById('idate').setAttribute('min', formattedDate);
+document.getElementById('idate').setAttribute('value', formattedDate);
+
+
+
+// -------------------------------------------------------------------------------------
+
+
+
+
+
+
+const myListTwo = document.getElementById('myList2');
+const itemTableFills = document.getElementById('itemTableFills');
+var j = 2;
+document.getElementById('addBlankLine').addEventListener('click', () => {
+
+  var tr = document.createElement('tr');
+
+
+  tr.classList.add('myList2');
+
+  tr.innerHTML = `
+  <tr id="myList2">
+  <td>${j}</td>
+  <td><textarea class="textarea" name="message"></textarea></td>
+  <td><input type="text" name="input1"></td>
+  <td><input type="text" id="inputbox${j}" onkeydown="callFuncation()" name="input2"></td>
+  <td>
+    <input type="text" onclick="updateTax()" id="option${j}">
+  </td>
+<td><input type="text" id="totalamount${j++}" class="totalamount" name="totalamount"></td>
+</tr>
+
+`;
+  itemTableFills.appendChild(tr);
+})
+
+
+
+document.getElementById('deleteLastElement').addEventListener('click', () => {
+
+  if (j > 2) {
+    j--;
+    const myListTwo = document.getElementsByClassName('myList2');
+    const lastElement = myListTwo[myListTwo.length - 1];
+    console.log(myListTwo.length);
+    lastElement.remove();
+  }
+
+
+});
+
+
+// -------------------------------------------------------------------------------------------------------
+
+
+
+const inputElement = document.getElementById('option');
+const inputbox = document.getElementById('inputbox');
+var selectElement = document.getElementById("tid");
+const totalamount = document.getElementById('totalamount');
+
+var priceData = "";
+var selectedValue = "";
+
+
+selectElement.addEventListener('change', () => {
+  selectedValue = selectElement.value;
+  console.log("TAX", selectedValue);
+})
+
+
+
+function callFuncation() {
+  priceData = inputbox.value;
+}
+
+function updateTax() {
+  callFuncation()
+  let taxnum = Number(selectedValue);
+  let taxAmount = taxnum * priceData / 100;
+  inputElement.value = Number(taxAmount);
+
+  afterTax = Number(taxAmount) + Number(priceData);
+  totalamount.value = afterTax
+
+}
+
+
+
+
+
+
+// write a code form is dynamic increase fills and dynamic 
+// decrease fills get html value and calculate the value , the below code example
+
+
+// ---------------------------------------------------------------------------
+
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 06:12 AM
+-- Generation Time: May 24, 2023 at 11:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -97,7 +97,42 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `email`, `fname`, `lname`, `contact`, `gender`, `position`, `gross`) VALUES
-(2, '345', 'ram', 'das', '9047658769', 'Male', 'HR', '10000');
+(2, '345', 'ram', 'das', '9047658769', 'Male', 'HR', '10000'),
+(4, '002', 'pavan', 'b', '9047658769', 'Male', 'Trainee', '10000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quotes`
+--
+
+CREATE TABLE `quotes` (
+  `id` int(11) NOT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `customer_id` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `quote_prefix` varchar(255) DEFAULT NULL,
+  `gst_number` varchar(255) DEFAULT NULL,
+  `date_created` date DEFAULT NULL,
+  `expiry_date` date DEFAULT NULL,
+  `stage` varchar(255) DEFAULT NULL,
+  `sales_tax_id` int(11) DEFAULT NULL,
+  `ckeditor2` varchar(255) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `input1` varchar(255) DEFAULT NULL,
+  `input2` int(11) DEFAULT NULL,
+  `option` varchar(50) DEFAULT NULL,
+  `totalamount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `quotes`
+--
+
+INSERT INTO `quotes` (`id`, `subject`, `customer_id`, `address`, `quote_prefix`, `gst_number`, `date_created`, `expiry_date`, `stage`, `sales_tax_id`, `ckeditor2`, `message`, `input1`, `input2`, `option`, `totalamount`) VALUES
+(278, 'website', 'Adrienne Zamora ', ' 21312', '1235', '46546579876549', '0000-00-00', '0000-00-00', 'Delivered', 9, '<p>acbd</p>', '00001', '1', 1200, 'NO', 1200),
+(280, 'website', 'Conor Nolan', ' bangalore', '123', '12', '2023-03-07', '2023-04-07', 'Accepted', 18, '', '21312', '1', 120000, 'YES', 12500),
+(281, 'RT24', 'John', ' chikkabalapura', '1235', '1241654651324', '2023-03-09', '2023-04-06', 'Accepted', 17, '<p>sadasdasd</p>', 'aaaaaaa', '2', 12222, 'YES', 125000);
 
 -- --------------------------------------------------------
 
@@ -163,6 +198,12 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `quotes`
+--
+ALTER TABLE `quotes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -188,7 +229,13 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `quotes`
+--
+ALTER TABLE `quotes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=289;
 
 --
 -- AUTO_INCREMENT for table `user`

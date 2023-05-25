@@ -124,6 +124,7 @@ text-indent:-90%;
 /* editorone */
 .editorone{
   margin: 40px;
+ 
 }
 #editor{
  height: 50vh;
@@ -172,6 +173,7 @@ padding-right: 8%;
 background-color: #ffffff;
 margin-left: 1%;
 margin-right: 1%;
+margin-top: 20px;
 }
 .editclose button a{
 color: white;
@@ -374,4 +376,9 @@ justify-content: end;
 
 .QuotesCalculatorfills{
   gap: 10px;
+}
+
+
+#itemcode{
+  padding-left: 5%;
 }

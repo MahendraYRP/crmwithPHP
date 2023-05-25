@@ -343,13 +343,13 @@ if (isset($_POST['submit'])) {
 
                               <div class="mb-3">
                                 <label for="gross-salary" class="form-label">Gross Salary:</label>
-                                <input type="number" class="form-control" id="gross-salary" name="gross-salary"
-                                  onfocus="focused(this)" onfocusout="defocused(this)">
+                                <input type="number" class="form-control grossSalary0" id="gross-salary"
+                                  name="gross-salary" onfocus="focused(this)" onfocusout="defocused(this)">
                               </div>
 
                               <div class="mb-3">
                                 <label for="gross-salary" class="form-label">Monthly</label>
-                                <input type="number" class="form-control Monthly" id="gross-salary" name="gross-salary"
+                                <input type="number" class="form-control Monthly0" id="gross-salary" name="gross-salary"
                                   onfocus="focused(this)" onfocusout="defocused(this)">
                               </div>
 
@@ -370,7 +370,7 @@ if (isset($_POST['submit'])) {
                               </div>
 
                               <button type="button" class="btn btn-primary" value="calculate"
-                                onclick="myCalculate()">calculate</button>
+                                onclick="myCalculate(0)">calculate</button>
                             </form>
 
 
@@ -378,7 +378,7 @@ if (isset($_POST['submit'])) {
                           </div>
                         </div>
 
-                        <script src="./JS/QuotesCalculator.js"></script>
+
 
                         <div class="merge">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
@@ -486,7 +486,7 @@ if (isset($_POST['submit'])) {
                         <label for="invoicenum" class="col-sm-4 control-label">Quote Prefix</label>
 
                         <div class="col-sm-8">
-                          <input type="text" id="invoicenum" name="invoicenum" value="">
+                          <input type="text" id="invoicenum" name="invoicenum" disabled value="">
 
                         </div>
                       </div>
@@ -511,10 +511,11 @@ if (isset($_POST['submit'])) {
                         <label for="inputEmail3" class="col-sm-4 control-label">Date Created</label>
 
                         <div class="col-sm-8">
-                          <input type="date" id="idate" name="idate" datepicker="" data-date-format="yyyy-mm-dd"
-                            data-auto-close="true" value="2023-03-07">
+                          <input type="date" id="idate" class="datePicker" name="idate" data-auto-close="true">
                         </div>
                       </div>
+
+
 
                       <div class="form-group">
                         <label for="edate" class="col-sm-4 control-label">Expiry Date</label>
@@ -524,6 +525,9 @@ if (isset($_POST['submit'])) {
                             data-date-format="yyyy-mm-dd" data-auto-close="true" value="2023-04-07">
                         </div>
                       </div>
+
+
+
 
                       <div class="form-group">
                         <label for="stage" class="col-sm-4 control-label">Stage</label>
@@ -542,20 +546,13 @@ if (isset($_POST['submit'])) {
                         <label for="tid" class="col-sm-4 control-label">Sales TAX</label>
 
                         <div class="col-sm-8 selectCustomer">
-                          <select id="tid" name="tid" class="">
-                            <option value="">None</option>
-                            <option value="9.00%">CGST
-                              (9.00%)
-                            </option>
-                            <option value="18.00%">SGST/CGST
-                              (18.00%)
-                            </option>
-                            <option value="17.00%">SGST/CGST/IGST
-                              (27.00%)
-                            </option>
 
-
+                          <select id="tid" name="tid">
+                            <option value="0">None</option>
+                            <option value="18">SGST,CGST (18.00%)</option>
+                            <option value="18">IGST (18.00%)</option>
                           </select>
+
                           <input type="hidden" id="stax" name="stax" value="18.00">
                           <input type="hidden" id="discount_amount" name="discount_amount" value="0.00">
                           <input type="hidden" id="discount_type" name="discount_type" value="p">
@@ -572,12 +569,73 @@ if (isset($_POST['submit'])) {
 
                 </div>
 
+                <div class="Table" id="itemcode">
+                  <table>
+
+                    <thead>
+                      <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>TAX</th>
+                        <th>Total</th>
+
+                      </tr>
+                    </thead>
+                    <tbody id="itemTableFills">
+
+                      <tr id="myList2">
+                        <td>1</td>
+                        <td> <textarea class="textarea" name="message"></textarea></td>
+                        <td><input type="text" name="input1"></td>
+                        <td><input type="text" id="inputbox" onkeydown="callFuncation()" name="input2"></td>
+                        <td>
+                          <input type="text" id="option" onclick="updateTax()" autocomplete="off">
+                        </td>
+                        <td><input type="text" id="totalamount" class="totalamount" name="totalamount"></td>
+
+                      </tr>
+
+                    </tbody>
+
+                    <tbody>
+
+                    </tbody>
+                  </table>
+
+
+
+
+
+                  <div class="Tablebtn">
+                    <button type="button" class="btn btn-info" id="addBlankLine">Add blank Line</button>
+                    <button type="button" class="btn btn-primary" id="deleteLastElement">Delete</button>
+                  </div>
+
+                  <div class="bill">
+                    <div>
+                      <p>Sub Total :</p>
+                      <p id="subTotal"></p>
+                    </div>
+                    <div>
+                      <p>TAX :</p>
+                      <p id="taxamount">00</p>
+                    </div>
+                    <div>
+                      <p>TOTAL : </p>
+                      <p id="afterTaxAmount">00</p>
+                    </div>
+                  </div>
+
+                </div>
+
                 <!-- <input type="text" name="ckeditor2"/> -->
 
                 <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 
                 <div class="editorone">
-                  <b>​Proposal Text​</b>
+                  <b>Project Description</b>
                   <div id="editor" name="ckeditor2">
 
                   </div>
@@ -594,8 +652,8 @@ if (isset($_POST['submit'])) {
                     ClassicEditor
                       .create(document.querySelector('#editor'))
                       .then(editor => {
-                        console.log(editor);
-                        console.log("data");
+
+
                       })
                       .catch(error => {
                         console.error(error);
@@ -604,76 +662,8 @@ if (isset($_POST['submit'])) {
 
 
 
-                  <div class="Table">
-                    <table>
-
-                      <thead>
-                        <tr>
-                          <th>Item Code</th>
-                          <th>Item Name</th>
-                          <th>Qty</th>
-                          <th>Price</th>
-                          <th>TAX</th>
-                          <th>Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                        <tr id="myList2">
-                          <td>1</td>
-                          <td> <textarea class="textarea" name="message"></textarea></td>
-                          <td><input type="text" name="input1"></td>
-                          <td><input type="text" name="input2"></td>
-                          <td>
-
-                            <select name="option">
-                              <option value="YES">YES</option>
-                              <option value="NO">NO</option>
-                            </select>
-                          </td>
-                          <td><input type="text" name="totalamount"></td>
-
-                        </tr>
 
 
-                        <tr id="myList1">
-
-                        </tr>
-
-                      </tbody>
-
-                      <tbody>
-
-                      </tbody>
-                    </table>
-
-                    <script>
-
-                    </script>
-
-
-
-                    <div class="Tablebtn">
-                      <button type="button" class="btn btn-info" onclick="myFunction()">Add blank Line</button>
-                      <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
-                    </div>
-
-                    <div class="bill">
-                      <div>
-                        <p>Sub Total :</p>
-                        <p>00</p>
-                      </div>
-                      <div>
-                        <p>TAX :</p>
-                        <p>00</p>
-                      </div>
-                      <div>
-                        <p>TOTAL : </p>
-                        <p>00</p>
-                      </div>
-                    </div>
-
-                  </div>
                   <div class="editclose">
                     <button type="button" class="btn btn-primary">close</button>
                     <button type="submit" name="submit" onclick="getdata()" class="btn btn-info">Save</button>
@@ -846,6 +836,8 @@ if (isset($_POST['submit'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+  <script src="./JS/QuotesCalculator.js"></script>
 
 
 </body>

@@ -1,18 +1,6 @@
 console.log("hello world");
 
-function myFunction() {
-    const node = document.getElementById("myList2");
-    const clone = node.cloneNode(true);
-    document.getElementById("myList1").appendChild(clone);
-  }
 
-  function Delete(){
-
-   const delect = document.getElementById("myList1");
-   delect.lastChild.remove()
-   console.log(delect);
-
-  }
 
 //   Tables
 function deleteFuncation()

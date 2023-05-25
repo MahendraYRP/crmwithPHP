@@ -8,46 +8,46 @@ $sql = "SELECT * FROM `quotes` WHERE id = $idone";
 $result = mysqli_query($con, $sql);
 
 
-  $row = mysqli_fetch_assoc($result);
+$row = mysqli_fetch_assoc($result);
 
-  $subject = $row['subject'];
-  $customer_id = $row['customer_id'];
-  $address = $row['address'];
-  $quote_prefix = $row['quote_prefix'];
-  $gst_number = $row['gst_number'];
-  $date_created = $row['date_created'];
-  $expiry_date = $row['expiry_date'];
-  $stage = $row['stage'];
-  $sales_tax_id = $row['sales_tax_id'];
-  $text = $row['ckeditor2'];
-  $message = $row['message'];
-  $input1 = $row['input1'];
-  $input2 = $row['input2'];
-  $option = $row['option'];
-  $totalamount = $row['totalamount'];
-
-
-  if(isset($_POST['submit'])){
-
-    $subject = $_POST['subject'];
-    $customer_id = $_POST['cid'];
-    $address = $_POST['address'];
-    $quote_prefix = $_POST['invoicenum'];
-    $gst_number = $_POST['cn'];
-    $date_created = $_POST['idate'];
-    $expiry_date = $_POST['edate'];
-    $stage = $_POST['stage'];
-    $sales_tax_id = $_POST['tid'];
-    $text = $_POST['editor_val1'];
-    // Retrieve the form data
-    $message = $_POST['message'];
-    $input1 = $_POST['input1'];
-    $input2 = $_POST['input2'];
-    $option = $_POST['option'];
-    $totalamount = $_POST['totalamount'];
+$subject = $row['subject'];
+$customer_id = $row['customer_id'];
+$address = $row['address'];
+$quote_prefix = $row['quote_prefix'];
+$gst_number = $row['gst_number'];
+$date_created = $row['date_created'];
+$expiry_date = $row['expiry_date'];
+$stage = $row['stage'];
+$sales_tax_id = $row['sales_tax_id'];
+$text = $row['ckeditor2'];
+$message = $row['message'];
+$input1 = $row['input1'];
+$input2 = $row['input2'];
+$option = $row['option'];
+$totalamount = $row['totalamount'];
 
 
-$sql = "UPDATE `quotes`
+if (isset($_POST['submit'])) {
+
+  $subject = $_POST['subject'];
+  $customer_id = $_POST['cid'];
+  $address = $_POST['address'];
+  $quote_prefix = $_POST['invoicenum'];
+  $gst_number = $_POST['cn'];
+  $date_created = $_POST['idate'];
+  $expiry_date = $_POST['edate'];
+  $stage = $_POST['stage'];
+  $sales_tax_id = $_POST['tid'];
+  $text = $_POST['editor_val1'];
+  // Retrieve the form data
+  $message = $_POST['message'];
+  $input1 = $_POST['input1'];
+  $input2 = $_POST['input2'];
+  $option = $_POST['option'];
+  $totalamount = $_POST['totalamount'];
+
+
+  $sql = "UPDATE `quotes`
  SET subject = '$subject',
     customer_id = '$customer_id',
     address = '$address',
@@ -66,16 +66,16 @@ $sql = "UPDATE `quotes`
     WHERE id = $idone";
 
 
-$result = mysqli_query($con,$sql);
+  $result = mysqli_query($con, $sql);
 
-if ($result) {
-  // echo "data not inseterd";
-  header('location:tables.php');
-}else{
-  die(mysqli_error($con));
-}
-
+  if ($result) {
+    // echo "data not inseterd";
+    header('location:tables.php');
+  } else {
+    die(mysqli_error($con));
   }
+
+}
 
 
 
@@ -418,7 +418,7 @@ if ($result) {
                           </div>
                         </div>
 
-                        <script src="./JS/QuotesCalculator.js"></script>
+
 
                         <div class="merge">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">MERGE</button>
@@ -523,7 +523,8 @@ if ($result) {
                         <label for="invoicenum" class="col-sm-4 control-label">Quote Prefix</label>
 
                         <div class="col-sm-8">
-                          <input type="text" id="invoicenum" name="invoicenum" value="<?php echo $quote_prefix ?>">
+                          <input type="text" id="invoicenum" name="invoicenum" disabled
+                            value="<?php echo $quote_prefix ?>">
 
                         </div>
                       </div>
@@ -557,8 +558,8 @@ if ($result) {
                         <label for="edate" class="col-sm-4 control-label">Expiry Date</label>
 
                         <div class="col-sm-8">
-                          <input type="date" id="edate" name="edate" datepicker=""
-                            data-date-format="yyyy-mm-dd" data-auto-close="true" value="<?php echo date("Y/m/d") ?>">
+                          <input type="date" id="edate" name="edate" datepicker="" data-date-format="yyyy-mm-dd"
+                            data-auto-close="true" value="<?php echo date("Y/m/d") ?>">
                         </div>
                       </div>
 
@@ -586,15 +587,13 @@ if ($result) {
                         <div class="col-sm-8 selectCustomer">
                           <select id="tid" name="tid" class="">
                             <option value="<?php echo $sales_tax_id ?>"><?php echo $sales_tax_id ?></option>
-                            <option value="None">None</option>
-                            <option value="9.00%">CGST
-                              (9.00%)
-                            </option>
-                            <option value="18.00%">SGST/CGST
+                            <option value="0">None</option>
+
+                            <option value="18.00%">SGST , CGST
                               (18.00%)
                             </option>
-                            <option value="17.00%">SGST/CGST/IGST
-                              (27.00%)
+                            <option value="18.00%">SGST
+                              (18.00%)
                             </option>
 
 
@@ -615,13 +614,81 @@ if ($result) {
 
                 </div>
 
+                <div class="Table" id="itemcode">
+                  <table>
+
+                    <thead>
+                      <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>TAX</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr id="myList2">
+                        <td>1</td>
+                        <td> <textarea class="textarea" name="message"><?php echo $message ?></textarea></td>
+                        <td><input type="text" name="input1" value="<?php echo $input1 ?>"></td>
+                        <td><input type="text" name="input2" value="<?php echo $input2 ?>"></td>
+                        <td>
+
+                          <input type="text" id="option">
+                        </td>
+                        <td><input type="text" name="totalamount" value="<?php echo $totalamount ?>"></td>
+
+                      </tr>
+
+
+                      <tr id="myList1">
+
+                      </tr>
+
+                    </tbody>
+
+                    <tbody>
+
+                    </tbody>
+                  </table>
+
+                  <div class="Tablebtn">
+                    <button type="button" class="btn btn-info" id="addBlankLine">Add blank Line</button>
+                    <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+                  </div>
+
+                  <div class="bill">
+                    <div>
+                      <p>Sub Total :</p>
+                      <p>
+                        <?php echo $input2 ?>
+                      </p>
+                    </div>
+                    <div>
+
+                      <p>TAX :</p>
+                      <p>00</p>
+
+                    </div>
+                    <div>
+
+                      <p>Total</p>
+                      <p>00</p>
+
+                    </div>
+                  </div>
+
+                </div>
+
                 <!-- <input type="text" name="ckeditor2"/> -->
 
                 <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 
                 <div class="editorone">
-                  <b>​Proposal Text​</b>
-                  <div id="editor"  name="ckeditor2">
+                  <b>Project Description</b>
+                  <div id="editor" name="ckeditor2">
 
                     <?php echo $text ?>
 
@@ -651,110 +718,9 @@ if ($result) {
 
 
 
-                  <div class="Table">
-                    <table>
-
-                      <thead>
-                        <tr>
-                          <th>Item Code</th>
-                          <th>Item Name</th>
-                          <th>Qty</th>
-                          <th>Price</th>
-                          <th>TAX</th>
-                          <th>Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                        <tr id="myList2">
-                          <td>1</td>
-                          <td> <textarea class="textarea" name="message"><?php echo $message ?></textarea></td>
-                          <td><input type="text" name="input1" value="<?php echo $input1 ?>"></td>
-                          <td><input type="text" name="input2" value="<?php echo $input2 ?>"></td>
-                          <td>
-
-                            <select name="option">
-
-                              <?php
-
-                              if ($option == "YES") {
-                                echo ' <option value="' . $option . '"> ' . $option . ' </option>
-                                   <option value="NO">NO</option>';
-                              } else {
-                                echo '<option value="' . $option . '"> ' . $option . ' </option>
-                                  <option value="YES">YES</option>';
-                              }
-                              ?>
-                            </select>
-                          </td>
-                          <td><input type="text" name="totalamount" value="<?php echo $totalamount ?>"></td>
-
-                        </tr>
-
-
-                        <tr id="myList1">
-
-                        </tr>
-
-                      </tbody>
-
-                      <tbody>
-
-                      </tbody>
-                    </table>
-
-                    <script>
-
-                    </script>
 
 
 
-                    <div class="Tablebtn">
-                      <button type="button" class="btn btn-info" onclick="myFunction()">Add blank Line</button>
-                      <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
-                    </div>
-
-                    <div class="bill">
-                      <div>
-                        <p>Sub Total :</p>
-                        <p>
-                          <?php echo $input2 ?>
-                        </p>
-                      </div>
-                      <div>
-
-                      <?php                       
-                      $taxamount = $input2 * $sales_tax_id / 100;
-                      $afterTaxAmount = $input2 + $taxamount;
-                      ?>
-
-                        <p>TAX :</p>
-                        <p>
-                          <?php
-                          if ($option == "YES") {
-                            echo $taxamount;
-                          } else {
-                            echo "0.00";
-                          } ?>
-                        </p>
-                      </div>
-                      <div>
-                        <p>TOTAL : </p>
-                        <p>
-                          <?php
-
-                          if ($option == "YES") {
-                            echo $afterTaxAmount;
-                          } else {
-                            echo $input2;
-                          }
-
-                          ?>
-                        </p>
-                      </div>
-                    </div>
-
-                  </div>
                   <div class="editclose">
                     <button type="button" class="btn btn-primary">close</button>
                     <button type="submit" name="submit" onclick="getdata()" class="btn btn-info">Save</button>
@@ -919,7 +885,7 @@ if ($result) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
+  <script src="./JS/QuotesCalculator.js"></script>
 
 </body>
 
